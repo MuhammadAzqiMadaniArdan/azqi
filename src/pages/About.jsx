@@ -19,8 +19,8 @@ function About() {
   const [showIntro, setShowIntro] = useState(true);
   const [isExpanded, setIsExpanded] = useState(true);
 
-  // const textClass = (theme) =>
-  //   `text-sm font-light tracking-wide leading-relaxed ${theme === "Day" ? "text-slate-900" : "text-white"}`;
+  const textClass = (theme) =>
+    `text-sm font-light tracking-wide leading-relaxed ${theme === "Day" ? "text-slate-900" : "text-white"}`;
 
   useEffect(() => {
     const timer = setTimeout(() => setShowIntro(false), 1500);
@@ -76,12 +76,7 @@ function About() {
             </motion.div>
           )}
         </AnimatePresence> */}
-<Career
-              CV={CV}
-              Wikrama={Wikrama}
-              Dihostingin={Dihostingin}
-              theme={theme}
-            />
+
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
           {/* <div className="hidden lg:block">
             {Array.from({ length: 10 }).map((_, i) => (
@@ -91,7 +86,7 @@ function About() {
 
           <Header theme={theme} setTheme={setTheme} />
 
-          {/* <main className="">
+          <main className="">
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 my-20">
               <motion.div
                 initial={{ x: 100, opacity: 0 }}
@@ -178,7 +173,7 @@ function About() {
               </div>
             </section>
             <Services theme={theme} />
-          </main> */}
+          </main>
         </div>
         <Footer theme={theme} />
       </div>
