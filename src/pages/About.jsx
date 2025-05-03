@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 
-// import { UserCheck, Monitor } from "react-feather";
+import { UserCheck, Monitor } from "react-feather";
 
 // import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
