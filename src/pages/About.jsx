@@ -78,11 +78,11 @@ function About() {
         </AnimatePresence>
 
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-          {/* <div className="hidden lg:block">
+          <div className="hidden lg:block">
             {Array.from({ length: 10 }).map((_, i) => (
               <ShootingStar key={i} theme={theme} />
             ))}
-          </div> */}
+          </div>
 
           <Header theme={theme} setTheme={setTheme} />
 
