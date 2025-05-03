@@ -71,7 +71,7 @@ function Portfolio() {
                   theme === "Day" ? "text-slate-950" : "text-white"
                 }`}
               >
-                Portfolio 🔥
+                Portfolio
               </motion.h1>
             </motion.div>
           )}
@@ -79,9 +79,12 @@ function Portfolio() {
 
         {/* Kontainer Utama */}
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <ShootingStar key={i} theme={theme} />
-          ))}
+        <div className="hidden lg:block">
+
+{Array.from({ length: 10 }).map((_, i) => (
+  <ShootingStar key={i} theme={theme} />
+))}
+</div>
           <Header theme={theme} setTheme={setTheme} />
 
           {/* Main Content */}

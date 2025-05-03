@@ -49,7 +49,7 @@ function Home() {
   }, [theme]);
 
   return (
-    <>
+    <div>
       <AnimatePresence>
         {showIntro && (
           <motion.div
@@ -74,11 +74,19 @@ function Home() {
       </AnimatePresence>
 
       <div
-        className={`m-0 p-0 min-w-full lg:h-screen transition-colors duration-500 ease-in-out ${theme === "Day" ? "bg-slate-100 text-slate-950" : "bg-slate-950 text-white z-50"}`}
-      >
+  className={`w-full max-w-screen h-fit lg:h-screen transition-colors duration-500 ease-in-out ${
+    theme === "Day"
+      ? "bg-slate-100 text-slate-950"
+      : "bg-slate-950 text-white z-50"
+  }`}
+>
+
+                  <div className="hidden lg:block">
+
           {Array.from({ length: 10 }).map((_, i) => (
             <ShootingStar key={i} theme={theme} />
           ))}
+          </div>
         <div
           className={`font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%] transition-colors duration-500 ease-in-out ${
             theme === "Day"
@@ -91,7 +99,7 @@ function Home() {
             className="min-w-full w-1/2 bg-cover bg-center bg-fixed text-slate-950 flex-row justify-between h-[5%] mb-10"
           >
             <nav className="flex justify-between  font-medium items-center py-7 transition-all duration-300 ease-in-out">
-              <div className="gap-10 items-center font-semibold w-1/3 uppercase">
+              <div className="gap-10 items-center font-semibold w-1/3 uppercase hidden lg:block">
                 <a
                   className={`group cursor-pointer tracking-widest relative ${
                     theme === "Night" ? "text-white" : "text-black"
@@ -315,7 +323,7 @@ function Home() {
           </p>
         </footer>
       </div>
-    </>
+    </div>
   );
 }
 

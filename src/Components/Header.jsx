@@ -16,7 +16,7 @@ const Header = ({ theme, setTheme }) => {
     <header className="w-full h-[5%] mb-10 flex justify-between items-center p-5">
       <nav className="w-full flex items-center justify-between py-7 font-medium">
         {/* Logo */}
-        <div className="w-1/3 font-semibold uppercase">
+        <div className="w-1/3 font-semibold uppercase hidden lg:block">
           <a
             className={`group cursor-pointer tracking-widest relative ${
               theme === "Night" ? "text-white" : "text-black"

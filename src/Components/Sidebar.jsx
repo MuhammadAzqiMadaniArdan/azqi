@@ -9,8 +9,7 @@ import {
   Folder,
   MessageCircle,
 } from "react-feather";
-const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded,active }) => {
-
+const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded, active }) => {
   const navItems = [
     { label: "Home", icon: <Home size={20} />, to: "/" },
     { label: "About", icon: <User size={20} />, to: "/about" },
@@ -23,8 +22,11 @@ const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded,active }) => {
       className={`hidden lg:flex flex-col justify-between fixed top-0 right-0 h-screen z-20
         border-l transition-[width] duration-500 ease-in-out overflow-visible
         ${isExpanded ? "w-1/8" : "w-[60px]"}
-        ${theme === "Day" ? "bg-slate-100 text-slate-950 border-slate-900"
-                          : "bg-slate-950 text-white border-slate-900"}
+        ${
+          theme === "Day"
+            ? "bg-slate-100 text-slate-950 border-slate-900"
+            : "bg-slate-950 text-white border-slate-900"
+        }
       `}
     >
       {/* Top Section */}
@@ -37,7 +39,6 @@ const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded,active }) => {
         >
           {isExpanded ? "<" : ">"}
         </button>
-
       </div>
 
       {/* Navigation */}
@@ -60,43 +61,40 @@ const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded,active }) => {
 
             {/* Label muncul jika expanded */}
             <span
-  className={`relative z-10 transition-all duration-300 origin-left text-xs overflow-hidden whitespace-nowrap ${
-    isExpanded ? "opacity-100 scale-100 w-auto" : "opacity-0 scale-0 w-0"
-  }`}
->
-  {item.label}
-  <div className={`absolute h-1 bg-green-400 left-0 w-[0%] group-hover:w-[100%] duration-300 ${active == item.label ? "opacity-0" : ""}`} />
-</span>
-
+              className={`transition-all duration-300 origin-left text-xs ${
+                isExpanded ? "opacity-100 scale-100" : "opacity-0 scale-0"
+              }`}
+            >
+              {item.label}
+              <div
+                className={`absolute h-1 bg-green-400 left-0 w-[0%] group-hover:w-[100%] duration-300 ${active == item.label ? "opacity-0" : ""}`}
+              />
+            </span>
           </Link>
         ))}
       </nav>
 
       {/* Bottom Section: Trakteer */}
       <div className="flex flex-col gap-4 p-2">
-        
         {/* Theme Switcher */}
         <button
           onClick={() => setTheme(theme === "Day" ? "Night" : "Day")}
           className="p-2 rounded-full text-green-500 transition self-start items-start content-start"
           title="Switch Theme"
         >
-          {theme === "Day" ? 
-          (<div className="flex gap-2">
-            <Moon size={24} />
-            {isExpanded ? (
-                <p>Dark Mode</p>
-            ) : ""}
-          </div>) : (<div className="flex gap-2">
-            <Sun size={24} />
-            {isExpanded ? (
-                <p>Light Mode</p>
-            ) : ""}
-          </div>)}
+          {theme === "Day" ? (
+            <div className="flex gap-2">
+              <Moon size={24} />
+              {isExpanded ? <p>Dark Mode</p> : ""}
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <Sun size={24} />
+              {isExpanded ? <p>Light Mode</p> : ""}
+            </div>
+          )}
         </button>
       </div>
-      
-     
     </aside>
   );
 };

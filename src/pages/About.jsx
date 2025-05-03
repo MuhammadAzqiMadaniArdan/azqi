@@ -2,10 +2,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import {
-  UserCheck,
-  Monitor,
-} from "react-feather";
+import { UserCheck, Monitor } from "react-feather";
 
 import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
@@ -82,10 +79,13 @@ function About() {
         </AnimatePresence>
 
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-        {Array.from({ length: 10 }).map((_, i) => (
-            <ShootingStar key={i} theme={theme} />
-          ))}
-      <Header theme={theme} setTheme={setTheme} />
+          <div className="hidden lg:block">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <ShootingStar key={i} theme={theme} />
+            ))}
+          </div>
+
+          <Header theme={theme} setTheme={setTheme} />
 
           <main className="">
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 my-20">
@@ -152,7 +152,12 @@ function About() {
                 </div>
               </motion.section>
             </div>
-            <Career CV={CV} Wikrama={Wikrama} Dihostingin={Dihostingin} theme={theme} />
+            <Career
+              CV={CV}
+              Wikrama={Wikrama}
+              Dihostingin={Dihostingin}
+              theme={theme}
+            />
             <section className="skills my-10">
               <div>
                 <div className="flex justify-between my-5">
@@ -168,11 +173,10 @@ function About() {
                 <InfiniteScrollLanguages />
               </div>
             </section>
-            <Services theme={theme}/>
-
+            <Services theme={theme} />
           </main>
         </div>
-        <Footer theme={theme}/>
+        <Footer theme={theme} />
       </div>
     </section>
   );

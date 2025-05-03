@@ -283,7 +283,7 @@ function Certificate() {
                   theme === "Day" ? "text-slate-950" : "text-white"
                 }`}
               >
-                Certificate 🎖️
+                Certificate
               </motion.h1>
             </motion.div>
           )}
@@ -291,9 +291,11 @@ function Certificate() {
 
         {/* Kontainer Utama */}
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <ShootingStar key={i} theme={theme} />
-          ))}
+        <div className="hidden lg:block">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <ShootingStar key={i} theme={theme} />
+            ))}
+          </div>
           <Header theme={theme} setTheme={setTheme} />
 
           <main className="">
@@ -381,7 +383,7 @@ function Certificate() {
                 </div>
               </motion.section>
             </div>
-            <section className="portfolio-All">
+            <section className="certificate-All">
               <motion.div
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
