@@ -4,35 +4,19 @@ import Profile from "../assets/profile.png";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Download,
-  Folder,
-  GitHub,
-  Linkedin,
-  Mail,
-  Menu,
-  MessageCircle,
-  Moon,
-  Server,
-  Sun,
-  User,
-  X,
 } from "react-feather";
 import { ReactTyped } from "react-typed";
 import { Link } from "react-router-dom";
 import ShootingStar from "../Components/ShootingStar";
-const navItems = [
-    { label: "Home", icon: <Home size={20} />, to: "/" },
-    { label: "About", icon: <User size={20} />, to: "/about" },
-    { label: "Portfolio", icon: <Server size={20} />, to: "/portfolio" },
-    { label: "Certificate", icon: <Folder size={20} />, to: "/certificate" },
-  ];
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
+
 function Home() {
   const [showIntro, setShowIntro] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowIntro(false), 1500);
   
-    // Preload image paralel
     const img = new Image();
     img.src = Profile;
   
@@ -86,93 +70,8 @@ function Home() {
               : "bg-slate-950 text-white"
           }`}
         >
-          <header
-            id="Header"
-            className="min-w-full w-1/2 bg-cover bg-center bg-fixed text-slate-950 flex-row justify-between h-[5%] mb-10"
-          >
-            <nav className="flex justify-between  font-medium items-center py-7 transition-all duration-300 ease-in-out">
-              <div className="gap-10 items-center font-semibold w-1/3 uppercase">
-                <a
-                  className={`group cursor-pointer tracking-widest relative ${
-                    theme === "Night" ? "text-white" : "text-black"
-                  } `}
-                >
-                  Azqi
-                  <div className="absolute h-1 bg-green-400 left-0 w-[0%] group-hover:w-[100%] duration-300"></div>
-                </a>
-              </div>
-              <div className="grid grid-cols-4 gap-10 items-center font-semibold w-1/3 uppercase">
-                <a
-                  className="group cursor-pointer tracking-widest relative"
-                  href="https://github.com/MuhammadAzqiMadaniArdan"
-                >
-                  <div
-                    className={`rounded-full p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <GitHub size={25} />
-                  </div>
-                </a>
-                <a
-                  className="group cursor-pointer tracking-widest relative"
-                  href="mailto:muhammadazqi098@gmail.com"
-                >
-                  <div
-                    className={`rounded-full p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <Mail size={25} />
-                  </div>
-                </a>
-                <a
-                  className="group cursor-pointer tracking-widest relative"
-                  href="https://id.linkedin.com/in/muhammad-azqi-madani-ardan-315b722b5"
-                >
-                  <div
-                    className={`rounded-full p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <Linkedin size={25} />
-                  </div>
-                </a>
-                <a
-                  href="https://wa.me/6288215992674"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group cursor-pointer tracking-widest relative"
-                >
-                  <div
-                    className={`rounded-full p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <MessageCircle size={25} />
-                  </div>
-                </a>
-              </div>
-              <div className="block lg:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md bg-green-500 text-white"
-                  aria-label="Toggle Menu"
-                >
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-              </div>
-              <div className="hidden lg:flex justify-end w-1/3">
-                <button
-                  onClick={() => setTheme(theme === "Day" ? "Night" : "Day")}
-                  className="p-2 cursor-pointer rounded-full transition-colors duration-300 text-green-500"
-                  aria-label="Toggle Theme"
-                >
-                  {theme === "Day" ? <Moon size={24} /> : <Sun size={24} />}
-                </button>
-              </div>
-            </nav>
-          </header>
+      <Header theme={theme} setTheme={setTheme} />
+
           <main
             className={`flex flex-row-reverse md:flex-row justify-between items-center gap-10 w-full h-auto md:h-[75%] my-20 px-4 ${theme === "Day" ? "text-slate-950" : "text-white"}`}
           >
@@ -273,47 +172,12 @@ function Home() {
               </aside>
             </div>
 
-            {isMenuOpen && (
-              <div
-                className={`sm:hidden fixed top-0 left-0 w-full h-full  bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-6  text-xl font-bold ${theme === "Day" ? "bg-slate-200 text-gray-600" : "bg-slate-950 text-white"}`}
-              >
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md bg-green-500 text-white"
-                  aria-label="Toggle Menu"
-                >
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-                {navItems.map((item, idx) => (
-                    <Link
-                      key={idx}
-            to={item.to}
-                      // onClick={() => setIsMenuOpen(false)}
-                      className="cursor-pointer hover:text-green-400"
-                    >
-                      {item.label}
-                    </Link>
-                  )
-                )}
-                <button
-                  onClick={() => setTheme(theme === "Day" ? "Night" : "Day")}
-                  className="p-2 cursor-pointer rounded-full transition-colors duration-300 text-green-500"
-                  aria-label="Toggle Theme"
-                >
-                  {theme === "Day" ? <Moon size={24} /> : <Sun size={24} />}
-                </button>
-              </div>
-            )}
+            
           </main>
         </div>
 
-        <footer className="flex justify-end min-w-full w-1/2 h-[15%] pt-5">
-          <p
-            className={` uppercase py-2 px-5 mb-10 bg-green-500 rounded-l-full font-semibold self-center ${theme === "Day" ? "text-white" : "text-gray-900"}`}
-          >
-            copyright © 2025 Muhammad Azqi Madani Ardan
-          </p>
-        </footer>
+        <Footer theme={theme} />
+
       </div>
     </>
   );

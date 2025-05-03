@@ -1,24 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import {
   Download,
-  GitHub,
-  Linkedin,
-  Menu,
-  MessageCircle,
-  Moon,
-  Sun,
-  X,
-  Home,
-  User,
-  Server,
-  Folder,
-  Mail,
 } from "react-feather";
 
-import { Link } from "react-router-dom";
 import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
 import certificate1 from "../assets/certificate/figma-ui-all-1.png";
@@ -38,12 +25,9 @@ import certificate14 from "../assets/certificate/sertifikat-meneliti-karir-1.png
 import certificate15 from "../assets/certificate/sertifikat-visualisasi-1.png";
 import CV from "../assets/Cvazqi.pdf";
 import { FaMedal, FaStar } from "react-icons/fa";
-const navItems = [
-  { label: "Home", icon: <Home size={20} />, to: "/" },
-  { label: "About", icon: <User size={20} />, to: "/about" },
-  { label: "Portfolio", icon: <Server size={20} />, to: "/portfolio" },
-  { label: "Certificate", icon: <Folder size={20} />, to: "/certificate" },
-];
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
+
 const certificateData = [
   {
     src: certificate1,
@@ -233,28 +217,20 @@ const certificateData = [
 
 function Certificate() {
   const [showIntro, setShowIntro] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(true);
-  const [loadedImages, setLoadedImages] = useState(
-    Array(certificateData.length).fill(false)
-  );
+  const [loadedImages, setLoadedImages] = useState(Array(certificateData.length).fill(false));
+  const [lastImageLoaded, setLastImageLoaded] = useState(false);
+
+  const handleImageLoad = (index) => {
+    setLoadedImages((prev) => {
+      const updated = [...prev];
+      updated[index] = true;
+      return updated;
+    });
+  };
 
   const textClass = (theme) =>
     `text-sm font-light tracking-wide leading-relaxed ${theme === "Day" ? "text-slate-900" : "text-white"}`;
-
-  useEffect(() => {
-    certificateData.forEach((item, index) => {
-      const img = new Image();
-      img.src = item.src;
-      img.onload = () => {
-        setLoadedImages((prev) => {
-          const updated = [...prev];
-          updated[index] = true;
-          return updated;
-        });
-      };
-    });
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowIntro(false), 1500);
@@ -318,70 +294,8 @@ function Certificate() {
         {Array.from({ length: 10 }).map((_, i) => (
             <ShootingStar key={i} theme={theme} />
           ))}
-          {/* Header */}
-          <header className="w-full h-[5%] mb-10 flex justify-between items-center">
-            <nav className="w-full flex items-center justify-between py-7 font-medium">
-              {/* Logo */}
-              <div className="w-1/3 font-semibold uppercase">
-                <a
-                  className={`group cursor-pointer tracking-widest relative ${
-                    theme === "Night" ? "text-white" : "text-black"
-                  }`}
-                >
-                  Azqi
-                  <div className="absolute h-1 bg-green-400 left-0 w-0 group-hover:w-full duration-300"></div>
-                </a>
-              </div>
+      <Header theme={theme} setTheme={setTheme} />
 
-              {/* Social Links */}
-              <div className="grid grid-cols-4 gap-10 w-1/3">
-                {[
-                  {
-                    icon: <GitHub size={25} />,
-                    href: "https://github.com/MuhammadAzqiMadaniArdan",
-                  },
-                  {
-                    icon: <Linkedin size={25} />,
-                    href: "https://id.linkedin.com/in/muhammad-azqi-madani-ardan-315b722b5",
-                  },
-                  {
-                    icon: <Mail size={25} />,
-                    href: "mailto:muhammadazqi098@gmail.com",
-                  },
-                  {
-                    icon: <MessageCircle size={25} />,
-                    href: "https://wa.me/6288215992674",
-                  },
-                ].map((item, idx) => (
-                  <a
-                    key={idx}
-                    href={item.href}
-                    className="group cursor-pointer"
-                  >
-                    <div
-                      className={`rounded-full p-2 transition duration-300 ${
-                        theme === "Night" ? "text-white" : "text-black"
-                      } group-hover:scale-110 group-hover:text-green-500`}
-                    >
-                      {item.icon}
-                    </div>
-                  </a>
-                ))}
-              </div>
-
-              {/* Toggle Mobile Menu & Theme */}
-              <div className="block lg:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md bg-green-500 text-white"
-                >
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-              </div>
-            </nav>
-          </header>
-
-          {/* Main Content */}
           <main className="">
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 my-20">
               <motion.div
@@ -419,39 +333,50 @@ function Certificate() {
                 className="w-full md:w-3/5 grid gap-6 py-10"
                 id="about"
               >
-                <header className="space-y-2">
-                  <div className="flex items-center gap-2 text-2xl md:text-3xl font-bold">
-                    <FaMedal size={24} />
-                    Last Certificate
-                  </div>
-                  <p
-                    className={`text-base md:text-lg font-medium ${theme === "Day" ? "text-gray-600" : "text-gray-400"}`}
-                  >
-                    Figma For UI / UX Design
-                  </p>
-                  <hr className="border-gray-400 w-20" />
-                </header>
+<header className="space-y-2">
+  <div className="flex items-center gap-2 text-2xl md:text-3xl font-bold">
+    <FaMedal size={24} />
+    Last Certificate
+  </div>
+  <p
+    className={`text-base md:text-lg font-medium ${
+      theme === "Day" ? "text-gray-600" : "text-gray-400"
+    }`}
+  >
+    Figma For UI / UX Design
+  </p>
+  <hr className="border-gray-400 w-20" />
+</header>
 
-                <div className="space-y-4 text-justify">
-                  <img
-                    src={certificate1}
-                    alt="eksis-preview"
-                    className="w-full max-w-md  object-contain rounded-lg shadow-md"
-                  />
+<div className="space-y-4 text-justify">
+  {!lastImageLoaded ? (
+    <div className="w-full max-w-md h-64 bg-gray-300 animate-pulse rounded-lg flex items-center justify-center text-gray-700 font-medium">
+      Memuat gambar...
+    </div>
+  ) : (
+    <img
+      src={certificate1}
+      alt="eksis-preview"
+      className="w-full max-w-md object-contain rounded-lg shadow-md"
+      onLoad={() => setLastImageLoaded(true)}
+    />
+  )}
 
-                  <p className={textClass(theme)}>
-                    Sertifikat pelatihan desain UI menggunakan Figma.
-                  </p>
-                  <hr className="border-gray-400 w-20" />
 
-                  <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
-                    <p className="text-white self-center">Intermidiate</p>
-                    <div className="flex gap-2 text-white items-center">
-                      <FaStar />
-                      <FaStar />
-                    </div>
-                  </div>
-                </div>
+  <p className={textClass(theme)}>
+    Sertifikat pelatihan desain UI menggunakan Figma.
+  </p>
+  <hr className="border-gray-400 w-20" />
+
+  <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
+    <p className="text-white self-center">Intermidiate</p>
+    <div className="flex gap-2 text-white items-center">
+      <FaStar />
+      <FaStar />
+    </div>
+  </div>
+</div>
+
               </motion.section>
             </div>
             <section className="portfolio-All">
@@ -470,86 +395,53 @@ function Certificate() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-                  {certificateData.map((item, index) => (
-                    <div
-                      className={`flex flex-col justify-between p-6 rounded-xl shadow-md transition-all duration-300 w-full ${
-                        theme === "Day"
-                          ? "bg-white hover:bg-gray-100 text-slate-900 border border-gray-300"
-                          : "bg-gray-900 hover:bg-gray-800 text-white border border-gray-700"
-                      }`}
-                      key={index}
-                    >
-                      <div>
-                        <div className="flex justify-center py-2">
-                          {!loadedImages[index] ? (
-                            <div className="w-full h-full bg-gray-300 animate-pulse" />
-                          ) : (
-                            <img
-                              src={item.src}
-                              alt={item.title}
-                              className="w-full max-w-md object-contain rounded-lg shadow-md"
-                            />
-                          )}
-                        </div>
-
-                        <div className="flex flex-col gap-4 pt-4 text-center sm:text-left">
-                          <h5 className="text-xl font-bold">{item.title}</h5>
-                          <p className="text-sm text-gray-600 dark:text-gray-300">
-                            {item.description}
-                          </p>
-                        </div>
-                        <hr className="my-4 border-gray-400 dark:border-gray-600" />
-                      </div>
-
-                      <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
-                        <p className="text-white self-center">{item.type}</p>
-                        {item.stars}
-                      </div>
-                    </div>
-                  ))}
+      {certificateData.map((item, index) => (
+        <div
+          className={`flex flex-col justify-between p-6 rounded-xl shadow-md transition-all duration-300 w-full ${
+            theme === "Day"
+              ? "bg-white hover:bg-gray-100 text-slate-900 border border-gray-300"
+              : "bg-gray-900 hover:bg-gray-800 text-white border border-gray-700"
+          }`}
+          key={index}
+        >
+          <div>
+            <div className="flex justify-center py-2 min-h-[200px]">
+              {!loadedImages[index] ? (
+                <div className="w-full max-w-md h-[200px] flex items-center justify-center bg-gray-300 rounded-lg animate-pulse text-gray-700 text-sm font-semibold">
+                  Memuat gambar...
                 </div>
+              ) : (
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="w-full max-w-md object-contain rounded-lg shadow-md"
+                  onLoad={() => handleImageLoad(index)}
+                />
+              )}
+            </div>
+
+            <div className="flex flex-col gap-4 pt-4 text-center sm:text-left">
+              <h5 className="text-xl font-bold">{item.title}</h5>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {item.description}
+              </p>
+            </div>
+            <hr className="my-4 border-gray-400 dark:border-gray-600" />
+          </div>
+
+          <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
+            <p className="text-white self-center">{item.type}</p>
+            {item.stars}
+          </div>
+        </div>
+      ))}
+    </div>
               </motion.div>
             </section>
 
-            {isMenuOpen && (
-              <div
-                className={`sm:hidden fixed top-0 left-0 w-full h-full  bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-6  text-xl font-bold ${theme === "Day" ? "bg-slate-200 text-gray-600" : "bg-slate-950 text-white"}`}
-              >
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md bg-green-500 text-white"
-                  aria-label="Toggle Menu"
-                >
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-                {navItems.map((item, idx) => (
-                  <Link
-                    key={idx}
-                    to={item.to}
-                    // onClick={() => setIsMenuOpen(false)}
-                    className="cursor-pointer hover:text-green-400"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <button
-                  onClick={() => setTheme(theme === "Day" ? "Night" : "Day")}
-                  className="p-2 cursor-pointer rounded-full transition-colors duration-300 text-green-500"
-                  aria-label="Toggle Theme"
-                >
-                  {theme === "Day" ? <Moon size={24} /> : <Sun size={24} />}
-                </button>
-              </div>
-            )}
           </main>
         </div>
-        <footer className="flex justify-end min-w-full w-1/2 h-[15%] pt-10 ml-5">
-          <p
-            className={` uppercase py-2 px-5 mb-10 bg-green-500 rounded-l-full font-semibold self-center ${theme === "Day" ? "text-white" : "text-gray-900"}`}
-          >
-            copyright © 2025 Muhammad Azqi Madani Ardan
-          </p>
-        </footer>
+        <Footer theme={theme}/>
       </div>
     </section>
   );
