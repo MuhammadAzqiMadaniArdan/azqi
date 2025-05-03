@@ -169,7 +169,7 @@ function About() {
                   </h3>
                   <Monitor className="items-center content-center self-center" />
                 </div>
-                <InfiniteScrollLanguages />
+                {/* <InfiniteScrollLanguages /> */}
               </div>
             </section>
             <Services theme={theme} />
