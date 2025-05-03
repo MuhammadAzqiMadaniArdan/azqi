@@ -5,15 +5,15 @@ import { useEffect, useState } from "react";
 
 // import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
-// import Wikrama from "../assets/wikramalogo.png";
-// import Dihostingin from "../assets/dihostingin.png";
-// import CV from "../assets/Cvazqi.pdf";
+import Wikrama from "../assets/wikramalogo.png";
+import Dihostingin from "../assets/dihostingin.png";
+import CV from "../assets/Cvazqi.pdf";
 // import InfiniteScrollLanguages from "../Components/InfiniteScrollLanguage";
 
-// import Services from "../Components/Services";
-// import Career from "../Components/Career";
+import Services from "../Components/Services";
+import Career from "../Components/Career";
 import Header from "../Components/Header";
-// import Footer from "../Components/Footer";
+import Footer from "../Components/Footer";
 
 function About() {
   const [showIntro, setShowIntro] = useState(true);
@@ -76,7 +76,12 @@ function About() {
             </motion.div>
           )}
         </AnimatePresence> */}
-
+<Career
+              CV={CV}
+              Wikrama={Wikrama}
+              Dihostingin={Dihostingin}
+              theme={theme}
+            />
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
           {/* <div className="hidden lg:block">
             {Array.from({ length: 10 }).map((_, i) => (
@@ -175,7 +180,7 @@ function About() {
             <Services theme={theme} />
           </main> */}
         </div>
-        {/* <Footer theme={theme} /> */}
+        <Footer theme={theme} />
       </div>
     </section>
   );
