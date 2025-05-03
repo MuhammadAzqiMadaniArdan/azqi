@@ -1,9 +1,9 @@
 // components/Services.jsx
 
 import { motion } from "framer-motion";
-import { Monitor, GiGameConsole, Mail, Database } from "react-icons/fa";
+import { GiGameConsole} from "react-icons/fa";
 import ServiceCard from "./ServiceCard";
-
+import {Monitor,Mail,Database} from "react-feather"
 const Services = ({ theme }) => {
   return (
     <section className="services">
