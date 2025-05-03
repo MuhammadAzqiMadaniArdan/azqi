@@ -1,12 +1,12 @@
 import React from "react";
 import PortfolioCard from "./PortfolioCard";
-import portfolio1 from "./assets/portfolio1.jpg";
-import portfolio2 from "./assets/portfolio2.jpg";
-import portfolio3 from "./assets/portfolio3.jpg";
-import portfolio4 from "./assets/portfolio4.jpg";
-import portfolio5 from "./assets/portfolio5.jpg";
-import portfolio6 from "./assets/portfolio6.jpg";
-import portfolio7 from "./assets/portfolio7.jpg";
+import portfolio1 from "../assets/portfolio/portfolio-Eksis.png";
+import portfolio2 from "../assets/portfolio/portfolio-kasir.png";
+import portfolio3 from "../assets/portfolio/UnityEssential.png";
+import portfolio4 from "../assets/portfolio/portfolio-tbVillage.png";
+import portfolio5 from "../assets/portfolio/portfolio-flutter.png";
+import portfolio6 from "../assets/portfolio/portfolio-legaslisasi-app.jpeg";
+import portfolio7 from "../assets/portfolio/portfolio-buku-tamu.jpeg";
 
 const PortfolioSection = ({ theme }) => {
   const portfolioData = [
