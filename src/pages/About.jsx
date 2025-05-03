@@ -9,7 +9,7 @@ import Sidebar from "../Components/Sidebar";
 import Wikrama from "../assets/wikramalogo.png";
 import Dihostingin from "../assets/dihostingin.png";
 import CV from "../assets/Cvazqi.pdf";
-import InfiniteScrollLanguages from "../Components/InfiniteScrollLanguage";
+// import InfiniteScrollLanguages from "../Components/InfiniteScrollLanguage";
 
 import Services from "../Components/Services";
 import Career from "../Components/Career";
@@ -169,7 +169,7 @@ function About() {
                   </h3>
                   <Monitor className="items-center content-center self-center" />
                 </div>
-                <InfiniteScrollLanguages />
+                {/* <InfiniteScrollLanguages /> */}
               </div>
             </section>
             <Services theme={theme} />

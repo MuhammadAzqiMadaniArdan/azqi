@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import {
   SiJavascript,
   SiPython,
@@ -19,37 +19,48 @@ import {
 // Main Component
 const InfiniteScrollLanguages = () => {
   // Memoizing the languages array inside the component
-  const languages = useMemo(() => [
-    { name: "JavaScript", icon: <SiJavascript size={40} /> },
-    { name: "Python", icon: <SiPython size={40} /> },
-    { name: "PHP", icon: <SiPhp size={40} /> },
-    { name: "React", icon: <SiReact size={40} /> },
-    { name: "Tailwindcss", icon: <SiTailwindcss size={40} /> },
-    { name: "Bootstrap", icon: <SiBootstrap size={40} /> },
-    { name: "Unity", icon: <SiUnity size={40} /> },
-    { name: "Html5", icon: <SiHtml5 size={40} /> },
-    { name: "Css3", icon: <SiCss3 size={40} /> },
-    { name: "Laravel", icon: <SiLaravel size={40} /> },
-    { name: "Postgresql", icon: <SiPostgresql size={40} /> },
-    { name: "Nodedotjs", icon: <SiNodedotjs size={40} /> },
-  ], []); // Memoizing so that it doesn't get recalculated unnecessarily
+  const languages = useMemo(
+    () => [
+      { name: "JavaScript", icon: <SiJavascript size={40} /> },
+      { name: "Python", icon: <SiPython size={40} /> },
+      { name: "PHP", icon: <SiPhp size={40} /> },
+      { name: "React", icon: <SiReact size={40} /> },
+      { name: "Tailwindcss", icon: <SiTailwindcss size={40} /> },
+      { name: "Bootstrap", icon: <SiBootstrap size={40} /> },
+      { name: "Unity", icon: <SiUnity size={40} /> },
+      { name: "Html5", icon: <SiHtml5 size={40} /> },
+      { name: "Css3", icon: <SiCss3 size={40} /> },
+      { name: "Laravel", icon: <SiLaravel size={40} /> },
+      { name: "Postgresql", icon: <SiPostgresql size={40} /> },
+      { name: "Nodedotjs", icon: <SiNodedotjs size={40} /> },
+    ],
+    []
+  );
 
   const controls = useAnimation();
+  const isComponentVisible = useRef(true);
 
   useEffect(() => {
     const animate = async () => {
-      while (true) {
+      while (isComponentVisible.current) {
         await controls.start({
-          x: "-100%", // Move all items out of the viewport
+          x: "-100%", 
           transition: {
-            duration: 30, // Adjust duration for smoother but slower movement
+            duration: 30, 
             ease: "linear",
           },
         });
-        controls.set({ x: 0 }); // Reset position to 0 when reaching end
+        controls.set({ x: 0 }); 
       }
     };
-    animate();
+
+    if (isComponentVisible.current) {
+      animate();
+    }
+
+    return () => {
+      isComponentVisible.current = false;
+    };
   }, [controls]);
 
   return (
