@@ -1,0 +1,558 @@
+/* eslint-disable no-unused-vars */
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import {
+  Download,
+  GitHub,
+  Linkedin,
+  Menu,
+  MessageCircle,
+  Moon,
+  Sun,
+  X,
+  Home,
+  User,
+  Server,
+  Folder,
+  Mail,
+} from "react-feather";
+
+import { Link } from "react-router-dom";
+import ShootingStar from "../Components/ShootingStar";
+import Sidebar from "../Components/Sidebar";
+import certificate1 from "../assets/certificate/figma-ui-all-1.png";
+import certificate2 from "../assets/certificate/Ux-designAll-1.png";
+import certificate3 from "../assets/certificate/sertifikat-backend-1.png";
+import certificate4 from "../assets/certificate/sertifikat-frontend-1.png";
+import certificate5 from "../assets/certificate/sertifikat-cyberLabs.png";
+import certificate6 from "../assets/certificate/sertifikat-wanteknologi.jpg";
+import certificate7 from "../assets/certificate/sertifikat-js-1.png";
+import certificate8 from "../assets/certificate/sertifikat-Git-1.png";
+import certificate9 from "../assets/certificate/sertifikat-python-1.png";
+import certificate10 from "../assets/certificate/sertifikat-K3.jfif";
+import certificate11 from "../assets/certificate/sertifikat-ggj.png";
+import certificate12 from "../assets/certificate/sertifikat-UnityEssential-1.png";
+import certificate13 from "../assets/certificate/sertifikat-igdx.png";
+import certificate14 from "../assets/certificate/sertifikat-meneliti-karir-1.png";
+import certificate15 from "../assets/certificate/sertifikat-visualisasi-1.png";
+import CV from "../assets/Cvazqi.pdf";
+import { FaMedal, FaStar } from "react-icons/fa";
+const navItems = [
+  { label: "Home", icon: <Home size={20} />, to: "/" },
+  { label: "About", icon: <User size={20} />, to: "/about" },
+  { label: "Portfolio", icon: <Server size={20} />, to: "/portfolio" },
+  { label: "Certificate", icon: <Folder size={20} />, to: "/certificate" },
+];
+const certificateData = [
+  {
+    src: certificate1,
+    title: "Figma For UI / UX Design",
+    description: "A certificate for UI design training using Figma.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate2,
+    title: "UX Design",
+    description: "UX training to improve user experience.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate3,
+    title: "Learn to Build a Back-End Application for Beginners",
+    description:
+      "Certificate of training in building back-end web applications for beginners using JavaScript and Node.js.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+      </div>
+    ),
+    type: "Beginner",
+  },
+  {
+    src: certificate4,
+    title: "Learn to Build a Front-End Web for Beginners",
+    description:
+      "Certificate of training in building front-end web applications for beginners using CSS3 and semantic HTML.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+      </div>
+    ),
+    type: "Beginner",
+  },
+  {
+    src: certificate5,
+    title: "Back-End Development with JavaScript Framework",
+    description:
+      "Certificate from CyberLabs training in building back-end web applications using Express.js and Postman.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate6,
+    title:
+      "Front-End Development with The Progressive JavaScript Framework Vue.JS",
+    description:
+      "Certificate from PT Wanteknologi training in building company websites using Vue.js.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate7,
+    title: "Learn the Basics of JavaScript Programming",
+    description:
+      "Basic JavaScript training to improve website interactivity including DOM, events, and debugging.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+      </div>
+    ),
+    type: "Beginner",
+  },
+  {
+    src: certificate8,
+    title: "Learn Git Basics with GitHub",
+    description:
+      "Basic GitHub training to enhance the use of Git and GitHub as tools for collaboration and storing directories publicly.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+      </div>
+    ),
+    type: "Beginner",
+  },
+  {
+    src: certificate9,
+    title: "Getting Started with Python Programming",
+    description:
+      "Basic Python training to improve development and understanding of Python usage.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+      </div>
+    ),
+    type: "Beginner",
+  },
+  {
+    src: certificate10,
+    title: "Occupational Health and Safety",
+    description: "Occupational Health and Safety training.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate11,
+    title: "Global Game Jam",
+    description:
+      "Game development training with a team collaboration system to be completed in less than 3 days.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate12,
+    title: "Unity Essential Pathway",
+    description:
+      "Training in learning and developing games using Unity, covering systems and usage within the hierarchy.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate13,
+    title: "IGDX Seminar: Career Guidance For Aspiring Game Developers",
+    description:
+      "Seminar to improve understanding of the game developer industry and career in Indonesia.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "intermediate",
+  },
+  {
+    src: certificate14,
+    title: "Pursuing a Career as a Software Developer",
+    description: "Training on pursuing a career as a software developer.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+      </div>
+    ),
+    type: "Beginner",
+  },
+  {
+    src: certificate15,
+    title: "Learn the Basics of Data Visualization",
+    description: "Basic training in data visualization.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+      </div>
+    ),
+    type: "Beginner",
+  },
+];
+
+function Certificate() {
+  const [showIntro, setShowIntro] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [loadedImages, setLoadedImages] = useState(
+    Array(certificateData.length).fill(false)
+  );
+
+  const textClass = (theme) =>
+    `text-sm font-light tracking-wide leading-relaxed ${theme === "Day" ? "text-slate-900" : "text-white"}`;
+
+  useEffect(() => {
+    certificateData.forEach((item, index) => {
+      const img = new Image();
+      img.src = item.src;
+      img.onload = () => {
+        setLoadedImages((prev) => {
+          const updated = [...prev];
+          updated[index] = true;
+          return updated;
+        });
+      };
+    });
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIntro(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "Day";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  return (
+    <section className="p-0 m-0 bg-slate-950 ">
+      <Sidebar
+        theme={theme}
+        setTheme={setTheme}
+        isExpanded={isExpanded}
+        setIsExpanded={setIsExpanded}
+        active={"Certificate"}
+      />
+
+      {/* Konten utama */}
+      <div
+        className={`transition-all duration-500 ease-in-out h-full p-5 pb-1 ${showIntro ? "h-screen" : ""}  ${
+          isExpanded ? "lg:w-7/8" : "w-full lg:pr-[60px]"
+        } ${theme === "Day" ? "bg-slate-100 text-slate-950" : "bg-slate-950 text-white z-10"}`}
+      >
+        {/* Animasi Intro */}
+        <AnimatePresence>
+          {showIntro && (
+            <motion.div
+              key="intro"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-50  ${
+                theme === "Day" ? "bg-slate-100" : "bg-slate-950"
+              }`}
+            >
+              <motion.h1
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                transition={{ duration: 0.5 }}
+                className={`text-6xl font-bold animate-pulse ${
+                  theme === "Day" ? "text-slate-950" : "text-white"
+                }`}
+              >
+                Certificate 🎖️
+              </motion.h1>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Kontainer Utama */}
+        <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
+        {Array.from({ length: 10 }).map((_, i) => (
+            <ShootingStar key={i} theme={theme} />
+          ))}
+          {/* Header */}
+          <header className="w-full h-[5%] mb-10 flex justify-between items-center">
+            <nav className="w-full flex items-center justify-between py-7 font-medium">
+              {/* Logo */}
+              <div className="w-1/3 font-semibold uppercase">
+                <a
+                  className={`group cursor-pointer tracking-widest relative ${
+                    theme === "Night" ? "text-white" : "text-black"
+                  }`}
+                >
+                  Azqi
+                  <div className="absolute h-1 bg-green-400 left-0 w-0 group-hover:w-full duration-300"></div>
+                </a>
+              </div>
+
+              {/* Social Links */}
+              <div className="grid grid-cols-4 gap-10 w-1/3">
+                {[
+                  {
+                    icon: <GitHub size={25} />,
+                    href: "https://github.com/MuhammadAzqiMadaniArdan",
+                  },
+                  {
+                    icon: <Linkedin size={25} />,
+                    href: "https://id.linkedin.com/in/muhammad-azqi-madani-ardan-315b722b5",
+                  },
+                  {
+                    icon: <Mail size={25} />,
+                    href: "mailto:muhammadazqi098@gmail.com",
+                  },
+                  {
+                    icon: <MessageCircle size={25} />,
+                    href: "https://wa.me/6288215992674",
+                  },
+                ].map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    className="group cursor-pointer"
+                  >
+                    <div
+                      className={`rounded-full p-2 transition duration-300 ${
+                        theme === "Night" ? "text-white" : "text-black"
+                      } group-hover:scale-110 group-hover:text-green-500`}
+                    >
+                      {item.icon}
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Toggle Mobile Menu & Theme */}
+              <div className="block lg:hidden">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="p-2 rounded-md bg-green-500 text-white"
+                >
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+              </div>
+            </nav>
+          </header>
+
+          {/* Main Content */}
+          <main className="">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-10 my-20">
+              <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 4, ease: "easeOut" }}
+                className="w-full md:w-2/5 grid gap-4"
+              >
+                <h3
+                  className={`text-3xl md:text-4xl font-medium ${theme === "Day" ? "text-gray-600" : "text-white"}`}
+                >
+                  Certificate
+                </h3>
+                <h2
+                  className={`text-3xl md:text-5xl font-bold leading-tight ${theme === "Day" ? "text-slate-900" : "text-white"}`}
+                >
+                  From Learning to Earning -
+                  <span className="text-green-500"> My Certificates</span>
+                </h2>
+                                  <div className="mt-4">
+                                    <a
+                                      href={CV}
+                                      download
+                                      className="flex items-center gap-2 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium w-fit"
+                                    >
+                                      <Download size={18} />
+                                      Download CV
+                                    </a>
+                                  </div>
+              </motion.div>
+              <motion.section
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="w-full md:w-3/5 grid gap-6 py-10"
+                id="about"
+              >
+                <header className="space-y-2">
+                  <div className="flex items-center gap-2 text-2xl md:text-3xl font-bold">
+                    <FaMedal size={24} />
+                    Last Certificate
+                  </div>
+                  <p
+                    className={`text-base md:text-lg font-medium ${theme === "Day" ? "text-gray-600" : "text-gray-400"}`}
+                  >
+                    Figma For UI / UX Design
+                  </p>
+                  <hr className="border-gray-400 w-20" />
+                </header>
+
+                <div className="space-y-4 text-justify">
+                  <img
+                    src={certificate1}
+                    alt="eksis-preview"
+                    className="w-full max-w-md  object-contain rounded-lg shadow-md"
+                  />
+
+                  <p className={textClass(theme)}>
+                    Sertifikat pelatihan desain UI menggunakan Figma.
+                  </p>
+                  <hr className="border-gray-400 w-20" />
+
+                  <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
+                    <p className="text-white self-center">Intermidiate</p>
+                    <div className="flex gap-2 text-white items-center">
+                      <FaStar />
+                      <FaStar />
+                    </div>
+                  </div>
+                </div>
+              </motion.section>
+            </div>
+            <section className="portfolio-All">
+              <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 4, ease: "easeOut" }}
+                className="w-full"
+              >
+                <div className="flex justify-between items-center mb-6">
+                  <h3
+                    className={`text-3xl md:text-4xl font-medium ${theme === "Day" ? "text-gray-600" : "text-white"}`}
+                  >
+                    Certificate
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                  {certificateData.map((item, index) => (
+                    <div
+                      className={`flex flex-col justify-between p-6 rounded-xl shadow-md transition-all duration-300 w-full ${
+                        theme === "Day"
+                          ? "bg-white hover:bg-gray-100 text-slate-900 border border-gray-300"
+                          : "bg-gray-900 hover:bg-gray-800 text-white border border-gray-700"
+                      }`}
+                      key={index}
+                    >
+                      <div>
+                        <div className="flex justify-center py-2">
+                          {!loadedImages[index] ? (
+                            <div className="w-full h-full bg-gray-300 animate-pulse" />
+                          ) : (
+                            <img
+                              src={item.src}
+                              alt={item.title}
+                              className="w-full max-w-md object-contain rounded-lg shadow-md"
+                            />
+                          )}
+                        </div>
+
+                        <div className="flex flex-col gap-4 pt-4 text-center sm:text-left">
+                          <h5 className="text-xl font-bold">{item.title}</h5>
+                          <p className="text-sm text-gray-600 dark:text-gray-300">
+                            {item.description}
+                          </p>
+                        </div>
+                        <hr className="my-4 border-gray-400 dark:border-gray-600" />
+                      </div>
+
+                      <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
+                        <p className="text-white self-center">{item.type}</p>
+                        {item.stars}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </section>
+
+            {isMenuOpen && (
+              <div
+                className={`sm:hidden fixed top-0 left-0 w-full h-full  bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-6  text-xl font-bold ${theme === "Day" ? "bg-slate-200 text-gray-600" : "bg-slate-950 text-white"}`}
+              >
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="p-2 rounded-md bg-green-500 text-white"
+                  aria-label="Toggle Menu"
+                >
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+                {navItems.map((item, idx) => (
+                  <Link
+                    key={idx}
+                    to={item.to}
+                    // onClick={() => setIsMenuOpen(false)}
+                    className="cursor-pointer hover:text-green-400"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <button
+                  onClick={() => setTheme(theme === "Day" ? "Night" : "Day")}
+                  className="p-2 cursor-pointer rounded-full transition-colors duration-300 text-green-500"
+                  aria-label="Toggle Theme"
+                >
+                  {theme === "Day" ? <Moon size={24} /> : <Sun size={24} />}
+                </button>
+              </div>
+            )}
+          </main>
+        </div>
+        <footer className="flex justify-end min-w-full w-1/2 h-[15%] pt-10 ml-5">
+          <p
+            className={` uppercase py-2 px-5 mb-10 bg-green-500 rounded-l-full font-semibold self-center ${theme === "Day" ? "text-white" : "text-gray-900"}`}
+          >
+            copyright © 2025 Muhammad Azqi Madani Ardan
+          </p>
+        </footer>
+      </div>
+    </section>
+  );
+}
+
+export default Certificate;

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
+@import "tailwindcss";
+@theme{
+    --font-signika-ngt :  "Signika Negative", sans-serif;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+
+  
+
+  
+  body {
+    margin: 0; 
+  }
+
+  nav {
+    transition: transform 0.3s ease; 
+  }
+  
+  nav.hidden {
+    transform: translateY(-100%); 
+  }
+  
+  
