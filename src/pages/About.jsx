@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-// import { AnimatePresence, motion } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { AnimatePresence, motion } from "framer-motion";
 
 // import { UserCheck, Monitor } from "react-feather";
 
@@ -14,7 +15,6 @@ import Services from "../Components/Services";
 import Career from "../Components/Career";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-
 function About() {
   const [showIntro, setShowIntro] = useState(true);
   const [isExpanded, setIsExpanded] = useState(true);
