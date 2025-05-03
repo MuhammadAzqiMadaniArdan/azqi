@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SiFlutter, SiDart, SiLaravel, SiPhp, SiHtml5, SiJavascript, SiJquery, SiBootstrap, SiMysql, SiUnity, SiCsharp, SiWebgl, SiGithub } from "react-icons/si";
+import { SiFlutter, SiDart, SiLaravel, SiPhp, SiHtml5, SiJavascript, SiJquery, SiBootstrap, SiMysql, SiUnity, SiSharp, SiWebgl, SiGithub } from "react-icons/si";
 
 const PortfolioCard = ({
   theme,
@@ -61,7 +61,7 @@ const PortfolioCard = ({
               {tool === "Bootstrap" && <SiBootstrap size={18} />}
               {tool === "MySQL" && <SiMysql size={18} />}
               {tool === "Unity" && <SiUnity size={18} />}
-              {tool === "CSharp" && <SiCsharp size={18} />}
+              {tool === "CSharp" && <SiSharp size={18} />}
               {tool === "WebGL" && <SiWebgl size={18} />}
               <span>{tool}</span>
             </div>
