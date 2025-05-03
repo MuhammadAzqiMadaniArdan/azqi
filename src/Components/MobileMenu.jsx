@@ -6,7 +6,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, theme, setTheme, navItems }) =>
   return (
     isMenuOpen && (
       <div
-        className={`sm:hidden fixed top-0 left-0 w-full h-full bg-opacity-90  flex flex-col items-center justify-center space-y-6 text-xl font-bold ${
+        className={`sm:hidden fixed top-0 left-0 w-full h-full bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-6 text-xl font-bold ${
           theme === "Day" ? "bg-slate-200 text-gray-600" : "bg-slate-950 text-white"
         }`}
       >

@@ -41,4 +41,6 @@ body, html {
     transform: translateY(-100%); 
   }
   
-  
+  .motion-element {
+    will-change: transform, opacity;
+  }

@@ -1,7 +1,8 @@
+import React from 'react';
 import { Map, Calendar } from 'react-feather';
 
-const CareerCard = ({ logo, title, role, location, duration, theme }) => {
-  return (
+const CareerCard = React.memo(({ logo, title, role, location, duration, theme }) => {
+    return (
     <div
       className={`w-full max-w-lg mx-auto p-6 rounded-xl shadow-md transition-all duration-300 ${
         theme === 'Day'
@@ -10,7 +11,7 @@ const CareerCard = ({ logo, title, role, location, duration, theme }) => {
       }`}
     >
       <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
-        <img src={logo} alt={`${title}-logo`} className="w-24 h-24 object-contain sm:w-20 sm:h-20" />
+        <img src={logo} alt={`${title}-logo`} className="w-24 h-24 object-contain sm:w-20 sm:h-20" loading='lazy'/>
         <div className="text-center sm:text-left">
           <h5 className="text-xl font-bold mb-1">{title}</h5>
           <p className="text-sm text-gray-500 dark:text-gray-300">{role}</p>
@@ -31,6 +32,6 @@ const CareerCard = ({ logo, title, role, location, duration, theme }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CareerCard;

@@ -1,14 +1,10 @@
-import { motion } from 'framer-motion';
 import CareerCard from './CareerCard';
 import { Download } from 'react-feather';
 
 const Career = ({ CV, Wikrama, Dihostingin, theme }) => {
   return (
     <section className="career">
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 4, ease: 'easeOut' }}
+      <div
         className="w-full"
       >
         <div className="flex justify-between items-center mb-6">
@@ -45,7 +41,7 @@ const Career = ({ CV, Wikrama, Dihostingin, theme }) => {
             theme={theme}
           />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

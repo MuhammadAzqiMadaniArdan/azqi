@@ -6,6 +6,7 @@ import {
   Download,
   Folder,
   GitHub,
+  Home,
   Linkedin,
   Mail,
   Menu,
@@ -19,13 +20,15 @@ import {
 import { ReactTyped } from "react-typed";
 import { Link } from "react-router-dom";
 import ShootingStar from "../Components/ShootingStar";
+import CV from "../assets/Cvazqi.pdf";
+
 const navItems = [
     { label: "Home", icon: <Home size={20} />, to: "/" },
     { label: "About", icon: <User size={20} />, to: "/about" },
     { label: "Portfolio", icon: <Server size={20} />, to: "/portfolio" },
     { label: "Certificate", icon: <Folder size={20} />, to: "/certificate" },
   ];
-function Home() {
+function HomePage() {
   const [showIntro, setShowIntro] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -234,7 +237,8 @@ function Home() {
 
                 <div className="mt-4">
                   <a
-                    href=""
+                    href={CV}
+                    download
                     className="flex items-center gap-2 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium w-fit"
                   >
                     <Download size={18} />
@@ -297,8 +301,9 @@ function Home() {
                       key={idx}
             to={item.to}
                       // onClick={() => setIsMenuOpen(false)}
-                      className="cursor-pointer hover:text-green-400"
+                      className="cursor-pointer hover:text-green-400 flex gap-2"
                     >
+                      {item.icon}
                       {item.label}
                     </Link>
                   )
@@ -327,4 +332,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;
