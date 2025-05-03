@@ -10,7 +10,7 @@ import {
 
 import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
-import portfolio1 from "../assets/portfolio-Eksis.png";
+import portfolio1 from "../assets/portfolio/portfolio-Eksis.png";
 import CV from "../assets/Cvazqi.pdf";
 
 import Header from "../Components/Header";
