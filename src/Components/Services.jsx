@@ -1,9 +1,11 @@
 // components/Services.jsx
 
 import { motion } from "framer-motion";
-import { GiGameConsole} from "react-icons/fa";
 import ServiceCard from "./ServiceCard";
 import {Monitor,Mail,Database} from "react-feather"
+import { GiGameConsole } from "react-icons/gi";
+import { SiLaravel, SiReact, SiTailwindcss, SiMysql, SiPostgresql, SiHtml5, SiCss3, SiJavascript, SiUnity, SiSharp } from "react-icons/si";
+
 const Services = ({ theme }) => {
   return (
     <section className="services">

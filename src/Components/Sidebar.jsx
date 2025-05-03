@@ -8,9 +8,7 @@ import {
   Server,
   Folder,
   MessageCircle,
-  Coffee,
 } from "react-feather";
-
 const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded,active }) => {
 
   const navItems = [
