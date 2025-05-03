@@ -31,9 +31,9 @@ function About() {
     return localStorage.getItem("theme") || "Day";
   });
 
-  // useEffect(() => {
-  //   localStorage.setItem("theme", theme);
-  // }, [theme]);
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <section className="p-0 m-0 bg-slate-950">
@@ -50,7 +50,7 @@ function About() {
           isExpanded ? "lg:w-7/8" : "w-full lg:pr-[60px]"
         } ${theme === "Day" ? "bg-slate-100 text-slate-950" : "bg-slate-950 text-white z-10"}`}
       >
-        {/* <AnimatePresence>
+        <AnimatePresence>
           {showIntro && (
             <motion.div
               key="intro"
@@ -75,7 +75,7 @@ function About() {
               </motion.h1>
             </motion.div>
           )}
-        </AnimatePresence> */}
+        </AnimatePresence>
 
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
           {/* <div className="hidden lg:block">
