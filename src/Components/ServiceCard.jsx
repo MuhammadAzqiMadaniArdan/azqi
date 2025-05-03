@@ -1,8 +1,6 @@
-// components/ServiceCard.jsx
-
 import { SiLaravel, SiReact, SiTailwindcss, SiMysql, SiPostgresql, SiHtml5, SiCss3, SiJavascript, SiUnity, SiSharp } from "react-icons/si";
 import { GiGameConsole } from "react-icons/gi";
-import { Mail, Database, Monitor } from "react-icons/fa"; // Ganti dengan icon sesuai kebutuhan
+import { Mail, Database, Monitor } from "react-feather"; // Ganti dengan icon sesuai kebutuhan
 
 const ServiceCard = ({ title, description, tools, icon, theme }) => {
   return (

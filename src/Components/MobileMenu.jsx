@@ -23,7 +23,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, theme, setTheme, navItems }) =>
           <Link
             key={idx}
             to={item.to}
-            className="cursor-pointer hover:text-green-400 gap-2"
+            className="cursor-pointer hover:text-green-400 flex gap-2"
           >
             {item.icon}
             {item.label}

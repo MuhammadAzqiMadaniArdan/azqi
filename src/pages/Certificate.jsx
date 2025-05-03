@@ -2,9 +2,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import {
-  Download,
-} from "react-feather";
+import { Download } from "react-feather";
 
 import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
@@ -218,7 +216,9 @@ const certificateData = [
 function Certificate() {
   const [showIntro, setShowIntro] = useState(true);
   const [isExpanded, setIsExpanded] = useState(true);
-  const [loadedImages, setLoadedImages] = useState(Array(certificateData.length).fill(false));
+  const [loadedImages, setLoadedImages] = useState(
+    Array(certificateData.length).fill(false)
+  );
   const [lastImageLoaded, setLastImageLoaded] = useState(false);
 
   const handleImageLoad = (index) => {
@@ -291,10 +291,10 @@ function Certificate() {
 
         {/* Kontainer Utama */}
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-        {Array.from({ length: 10 }).map((_, i) => (
+          {Array.from({ length: 10 }).map((_, i) => (
             <ShootingStar key={i} theme={theme} />
           ))}
-      <Header theme={theme} setTheme={setTheme} />
+          <Header theme={theme} setTheme={setTheme} />
 
           <main className="">
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 my-20">
@@ -315,16 +315,16 @@ function Certificate() {
                   From Learning to Earning -
                   <span className="text-green-500"> My Certificates</span>
                 </h2>
-                                  <div className="mt-4">
-                                    <a
-                                      href={CV}
-                                      download
-                                      className="flex items-center gap-2 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium w-fit"
-                                    >
-                                      <Download size={18} />
-                                      Download CV
-                                    </a>
-                                  </div>
+                <div className="mt-4">
+                  <a
+                    href={CV}
+                    download
+                    className="flex items-center gap-2 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium w-fit"
+                  >
+                    <Download size={18} />
+                    Download CV
+                  </a>
+                </div>
               </motion.div>
               <motion.section
                 initial={{ x: 100, opacity: 0 }}
@@ -333,50 +333,52 @@ function Certificate() {
                 className="w-full md:w-3/5 grid gap-6 py-10"
                 id="about"
               >
-<header className="space-y-2">
-  <div className="flex items-center gap-2 text-2xl md:text-3xl font-bold">
-    <FaMedal size={24} />
-    Last Certificate
-  </div>
-  <p
-    className={`text-base md:text-lg font-medium ${
-      theme === "Day" ? "text-gray-600" : "text-gray-400"
-    }`}
-  >
-    Figma For UI / UX Design
-  </p>
-  <hr className="border-gray-400 w-20" />
-</header>
+                <header className="space-y-2">
+                  <div className="flex items-center gap-2 text-2xl md:text-3xl font-bold">
+                    <FaMedal size={24} />
+                    Last Certificate
+                  </div>
+                  <p
+                    className={`text-base md:text-lg font-medium ${
+                      theme === "Day" ? "text-gray-600" : "text-gray-400"
+                    }`}
+                  >
+                    Figma For UI / UX Design
+                  </p>
+                  <hr className="border-gray-400 w-20" />
+                </header>
 
-<div className="space-y-4 text-justify">
-  {!lastImageLoaded ? (
-    <div className="w-full max-w-md h-64 bg-gray-300 animate-pulse rounded-lg flex items-center justify-center text-gray-700 font-medium">
+                <div className="space-y-4 text-justify">
+                <div className="relative w-full max-w-md">
+  {!lastImageLoaded && (
+    <div className="absolute inset-0 h-64 bg-gray-300 animate-pulse rounded-lg flex items-center justify-center text-gray-700 font-medium z-10">
       Memuat gambar...
     </div>
-  ) : (
-    <img
-      src={certificate1}
-      alt="eksis-preview"
-      className="w-full max-w-md object-contain rounded-lg shadow-md"
-      onLoad={() => setLastImageLoaded(true)}
-    />
   )}
-
-
-  <p className={textClass(theme)}>
-    Sertifikat pelatihan desain UI menggunakan Figma.
-  </p>
-  <hr className="border-gray-400 w-20" />
-
-  <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
-    <p className="text-white self-center">Intermidiate</p>
-    <div className="flex gap-2 text-white items-center">
-      <FaStar />
-      <FaStar />
-    </div>
-  </div>
+  <img
+    src={certificate1}
+    alt="eksis-preview"
+    onLoad={() => setLastImageLoaded(true)}
+    className={`w-full max-w-md h-64 object-contain rounded-lg shadow-md transition-opacity duration-300 ${
+      lastImageLoaded ? "opacity-100" : "opacity-0"
+    }`}
+  />
 </div>
 
+
+                  <p className={textClass(theme)}>
+                    Sertifikat pelatihan desain UI menggunakan Figma.
+                  </p>
+                  <hr className="border-gray-400 w-20" />
+
+                  <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
+                    <p className="text-white self-center">Intermidiate</p>
+                    <div className="flex gap-2 text-white items-center">
+                      <FaStar />
+                      <FaStar />
+                    </div>
+                  </div>
+                </div>
               </motion.section>
             </div>
             <section className="portfolio-All">
@@ -395,53 +397,56 @@ function Certificate() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-      {certificateData.map((item, index) => (
-        <div
-          className={`flex flex-col justify-between p-6 rounded-xl shadow-md transition-all duration-300 w-full ${
-            theme === "Day"
-              ? "bg-white hover:bg-gray-100 text-slate-900 border border-gray-300"
-              : "bg-gray-900 hover:bg-gray-800 text-white border border-gray-700"
-          }`}
-          key={index}
-        >
-          <div>
-            <div className="flex justify-center py-2 min-h-[200px]">
-              {!loadedImages[index] ? (
-                <div className="w-full max-w-md h-[200px] flex items-center justify-center bg-gray-300 rounded-lg animate-pulse text-gray-700 text-sm font-semibold">
-                  Memuat gambar...
-                </div>
-              ) : (
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full max-w-md object-contain rounded-lg shadow-md"
-                  onLoad={() => handleImageLoad(index)}
-                />
-              )}
-            </div>
-
-            <div className="flex flex-col gap-4 pt-4 text-center sm:text-left">
-              <h5 className="text-xl font-bold">{item.title}</h5>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                {item.description}
-              </p>
-            </div>
-            <hr className="my-4 border-gray-400 dark:border-gray-600" />
-          </div>
-
-          <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
-            <p className="text-white self-center">{item.type}</p>
-            {item.stars}
-          </div>
-        </div>
-      ))}
+                  {certificateData.map((item, index) => (
+                    <div
+                      className={`flex flex-col justify-between p-6 rounded-xl shadow-md transition-all duration-300 w-full ${
+                        theme === "Day"
+                          ? "bg-white hover:bg-gray-100 text-slate-900 border border-gray-300"
+                          : "bg-gray-900 hover:bg-gray-800 text-white border border-gray-700"
+                      }`}
+                      key={index}
+                    >
+                      <div>
+                        <div className="flex justify-center py-2 min-h-[200px]">
+                        <div className="relative w-full max-w-md">
+  {!loadedImages[index] && (
+    <div className="absolute inset-0 flex items-center justify-center bg-gray-300 rounded-lg animate-pulse text-gray-700 text-sm font-semibold z-10">
+      Memuat gambar...
     </div>
+  )}
+  <img
+    src={item.src}
+    alt={item.title}
+    onLoad={() => handleImageLoad(index)}
+    className={`w-full object-contain rounded-lg shadow-md transition-opacity duration-500 ${
+      loadedImages[index] ? "opacity-100" : "opacity-0"
+    }`}
+  />
+</div>
+
+                        </div>
+
+                        <div className="flex flex-col gap-4 pt-4 text-center sm:text-left">
+                          <h5 className="text-xl font-bold">{item.title}</h5>
+                          <p className="text-sm text-gray-600 dark:text-gray-300">
+                            {item.description}
+                          </p>
+                        </div>
+                        <hr className="my-4 border-gray-400 dark:border-gray-600" />
+                      </div>
+
+                      <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
+                        <p className="text-white self-center">{item.type}</p>
+                        {item.stars}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             </section>
-
           </main>
         </div>
-        <Footer theme={theme}/>
+        <Footer theme={theme} />
       </div>
     </section>
   );

@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import MobileMenu from "./MobileMenu"; // Import komponen MobileMenu
-import { GitHub, Linkedin, Mail, MessageCircle, X, Menu } from "react-feather"; // Ganti sesuai kebutuhan dengan icon yang kamu pakai
+import { GitHub, Linkedin, Mail, MessageCircle, X, Menu, Home, User, Server, Folder } from "react-feather"; // Ganti sesuai kebutuhan dengan icon yang kamu pakai
 
 const Header = ({ theme, setTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Daftar menu navigasi
   const navItems = [
     { label: "Home", icon: <Home size={20} />, to: "/" },
     { label: "About", icon: <User size={20} />, to: "/about" },
     { label: "Portfolio", icon: <Server size={20} />, to: "/portfolio" },
     { label: "Certificate", icon: <Folder size={20} />, to: "/certificate" },
   ];
-
+  
   return (
-    <header className="w-full h-[5%] mb-10 flex justify-between items-center">
+    <header className="w-full h-[5%] mb-10 flex justify-between items-center p-5">
       <nav className="w-full flex items-center justify-between py-7 font-medium">
         {/* Logo */}
         <div className="w-1/3 font-semibold uppercase">

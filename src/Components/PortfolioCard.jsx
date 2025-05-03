@@ -1,5 +1,20 @@
 import React, { useState } from "react";
-import { SiFlutter, SiDart, SiLaravel, SiPhp, SiHtml5, SiJavascript, SiJquery, SiBootstrap, SiMysql, SiUnity, SiSharp, SiWebgl, SiGithub } from "react-icons/si";
+import { Lock, Play } from "react-feather";
+import {
+  SiFlutter,
+  SiDart,
+  SiLaravel,
+  SiPhp,
+  SiHtml5,
+  SiJavascript,
+  SiJquery,
+  SiBootstrap,
+  SiMysql,
+  SiUnity,
+  SiSharp,
+  SiWebgl,
+  SiGithub,
+} from "react-icons/si";
 
 const PortfolioCard = ({
   theme,
@@ -29,7 +44,9 @@ const PortfolioCard = ({
         <div className="flex justify-center py-2 relative">
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-lg">
-              <span className="text-gray-500 font-semibold">Sedang Memuat Gambar...</span>
+              <span className="text-gray-500 font-semibold">
+                Sedang Memuat Gambar...
+              </span>
             </div>
           )}
           <img
@@ -42,7 +59,9 @@ const PortfolioCard = ({
 
         <div className="flex flex-col gap-4 pt-4 text-center sm:text-left">
           <h5 className="text-xl font-bold">{title}</h5>
-          <p className="text-sm text-gray-600 dark:text-gray-300">{description}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-300">
+            {description}
+          </p>
         </div>
 
         <hr className="my-4 border-gray-300 dark:border-gray-600" />
@@ -83,15 +102,18 @@ const PortfolioCard = ({
 
       {playLink && (
         <a
-          href={playLink}
-          className="flex justify-center bg-blue-700 hover:bg-blue-600 p-3 rounded-lg mt-4"
-        >
-          <p className="text-white self-center">Play Game</p>
-        </a>
+        href={playLink}
+        className="flex justify-center bg-blue-700 hover:bg-blue-600 p-3 rounded-lg mt-4"
+      >
+        <Play size={24} color="white" className="mr-2 self-center" />
+        <p className="text-white self-center">Play Game</p>
+      </a>
+
       )}
 
       {privateProject && (
-        <div className="flex justify-center bg-red-700 hover:bg-red-600 p-3 rounded-lg mt-4">
+        <div className="flex justify-center bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4">
+          <Lock size={24} color="white" className="mr-2 self-center" />
           <p className="text-white self-center">Private Project</p>
         </div>
       )}

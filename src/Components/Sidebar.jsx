@@ -60,13 +60,14 @@ const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded,active }) => {
 
             {/* Label muncul jika expanded */}
             <span
-              className={`transition-all duration-300 origin-left text-xs ${
-                isExpanded ? "opacity-100 scale-100" : "opacity-0 scale-0"
-              }`}
-            >
-              {item.label}
-              <div className={`absolute h-1 bg-green-400 left-0 w-[0%] group-hover:w-[100%] duration-300 ${active == item.label ? "opacity-0" : ""}`}></div>
-            </span>
+  className={`relative z-10 transition-all duration-300 origin-left text-xs overflow-hidden whitespace-nowrap ${
+    isExpanded ? "opacity-100 scale-100 w-auto" : "opacity-0 scale-0 w-0"
+  }`}
+>
+  {item.label}
+  <div className={`absolute h-1 bg-green-400 left-0 w-[0%] group-hover:w-[100%] duration-300 ${active == item.label ? "opacity-0" : ""}`} />
+</span>
+
           </Link>
         ))}
       </nav>

@@ -2,11 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import {
-  Download,
-  Monitor,
-  Lock,
-} from "react-feather";
+import { Download, Monitor, Lock } from "react-feather";
 
 import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
@@ -31,7 +27,10 @@ function Portfolio() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "Day";
   });
-
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIntro(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
@@ -83,8 +82,7 @@ function Portfolio() {
           {Array.from({ length: 10 }).map((_, i) => (
             <ShootingStar key={i} theme={theme} />
           ))}
-      <Header theme={theme} setTheme={setTheme} />
-
+          <Header theme={theme} setTheme={setTheme} />
 
           {/* Main Content */}
           <main className="">
@@ -106,16 +104,16 @@ function Portfolio() {
                   Let Me Show
                   <span className="text-green-500"> My Portfolio</span>
                 </h2>
-                                  <div className="mt-4">
-                                    <a
-                                      href={CV}
-                                      download
-                                      className="flex items-center gap-2 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium w-fit"
-                                    >
-                                      <Download size={18} />
-                                      Download CV
-                                    </a>
-                                  </div>
+                <div className="mt-4">
+                  <a
+                    href={CV}
+                    download
+                    className="flex items-center gap-2 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium w-fit"
+                  >
+                    <Download size={18} />
+                    Download CV
+                  </a>
+                </div>
               </motion.div>
               <motion.section
                 initial={{ x: 100, opacity: 0 }}
@@ -138,22 +136,23 @@ function Portfolio() {
                 </header>
 
                 <div className="space-y-4 text-justify">
-                <div className="relative">
-        {loading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-lg">
-            <span className="text-gray-500 font-semibold">Sedang Memuat Gambar...</span>
-          </div>
-        )}
+                  <div className="relative">
+                    {loading && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-lg">
+                        <span className="text-gray-500 font-semibold">
+                          Sedang Memuat Gambar...
+                        </span>
+                      </div>
+                    )}
 
-        {/* Image */}
-        <img
-          src={portfolio1}
-          alt="eksis-preview"
-          className={`w-full max-w-md object-contain rounded-lg shadow-md transition-opacity duration-300 ${loading ? "opacity-0" : "opacity-100"}`}
-          onLoad={handleImageLoad}
-        />
-      </div>
-
+                    {/* Image */}
+                    <img
+                      src={portfolio1}
+                      alt="eksis-preview"
+                      className={`w-full max-w-md object-contain rounded-lg shadow-md transition-opacity duration-300 ${loading ? "opacity-0" : "opacity-100"}`}
+                      onLoad={handleImageLoad}
+                    />
+                  </div>
 
                   <p className={textClass(theme)}>
                     A Website using React as Front-End styling with tailwind.css
@@ -188,14 +187,11 @@ function Portfolio() {
                 </div>
 
                 <PortfolioSection theme={theme} />
-
               </motion.div>
             </section>
-
           </main>
         </div>
         <Footer theme={theme} />
-
       </div>
     </section>
   );
