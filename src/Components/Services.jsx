@@ -2,10 +2,21 @@
 
 import { motion } from "framer-motion";
 import ServiceCard from "./ServiceCard";
-import {Monitor,Mail,Database} from "react-feather"
+import { Monitor, Mail, Database } from "react-feather";
 
 import { GiGameConsole } from "react-icons/gi";
-import { SiLaravel, SiReact, SiTailwindcss, SiMysql, SiPostgresql, SiHtml5, SiCss3, SiJavascript, SiUnity, SiSharp } from "react-icons/si";
+import {
+  SiLaravel,
+  SiReact,
+  SiTailwindcss,
+  SiMysql,
+  SiPostgresql,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiUnity,
+  SiSharp,
+} from "react-icons/si";
 
 const Services = ({ theme }) => {
   return (
@@ -17,7 +28,9 @@ const Services = ({ theme }) => {
         className="w-full"
       >
         <div className="flex justify-between items-center mb-6">
-          <h3 className={`text-3xl md:text-4xl font-medium ${theme === "Day" ? "text-gray-600" : "text-white"}`}>
+          <h3
+            className={`text-3xl md:text-4xl font-medium ${theme === "Day" ? "text-gray-600" : "text-white"}`}
+          >
             Services
           </h3>
         </div>
@@ -36,20 +49,25 @@ const Services = ({ theme }) => {
               { icon: SiJavascript, name: "JavaScript" },
               { icon: SiPostgresql, name: "PostgreSQL" },
             ]}
-            icon={<Monitor className="w-24 h-24 object-contain sm:w-20 sm:h-20" />}
+            icon={
+              <Monitor className="w-24 h-24 object-contain sm:w-20 sm:h-20" />
+            }
             theme={theme}
           />
 
           <ServiceCard
             title="Game Development"
-            description="I build responsive and scalable websites and web applications using modern technologies like Laravel for backend and React with Tailwind CSS for frontend. My focus is on clean architecture, usability, and performance."
+            description="I create 2D and 3D games using Unity, focusing on gameplay, design, and user experience. From initial concept to final build, I develop engaging and visually appealing games for various platforms. Whether it’s a simple 2D pixel game or a small-scale 3D adventure, I bring ideas to life through code, creativity, and interactive design.
+."
             tools={[
               { icon: SiUnity, name: "Unity" },
               { icon: SiSharp, name: "C#" },
               { icon: SiHtml5, name: "Html5" },
               { icon: SiJavascript, name: "JavaScript" },
             ]}
-            icon={<GiGameConsole className="w-24 h-24 object-contain sm:w-20 sm:h-20" />}
+            icon={
+              <GiGameConsole className="w-24 h-24 object-contain sm:w-20 sm:h-20" />
+            }
             theme={theme}
           />
 
@@ -73,7 +91,9 @@ const Services = ({ theme }) => {
               { icon: SiPostgresql, name: "PostgreSQL" },
               { icon: SiMysql, name: "MySQL" },
             ]}
-            icon={<Database className="w-24 h-24 object-contain sm:w-20 sm:h-20" />}
+            icon={
+              <Database className="w-24 h-24 object-contain sm:w-20 sm:h-20" />
+            }
             theme={theme}
           />
         </div>
