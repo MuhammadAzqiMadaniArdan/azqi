@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { UserCheck, Monitor } from "react-feather";
 
-// import ShootingStar from "../Components/ShootingStar";
+import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
 import Wikrama from "../assets/wikramalogo.png";
 import Dihostingin from "../assets/dihostingin.png";
