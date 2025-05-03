@@ -1,27 +1,26 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+// import { AnimatePresence, motion } from "framer-motion";
 
-import { UserCheck, Monitor } from "react-feather";
+// import { UserCheck, Monitor } from "react-feather";
 
-import ShootingStar from "../Components/ShootingStar";
+// import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
-import Wikrama from "../assets/wikramalogo.png";
-import Dihostingin from "../assets/dihostingin.png";
-import CV from "../assets/Cvazqi.pdf";
-import InfiniteScrollLanguages from "../Components/InfiniteScrollLanguage";
+// import Wikrama from "../assets/wikramalogo.png";
+// import Dihostingin from "../assets/dihostingin.png";
+// import CV from "../assets/Cvazqi.pdf";
+// import InfiniteScrollLanguages from "../Components/InfiniteScrollLanguage";
 
-import Services from "../Components/Services";
-import Career from "../Components/Career";
+// import Services from "../Components/Services";
+// import Career from "../Components/Career";
 import Header from "../Components/Header";
-import Footer from "../Components/Footer";
+// import Footer from "../Components/Footer";
 
 function About() {
   const [showIntro, setShowIntro] = useState(true);
   const [isExpanded, setIsExpanded] = useState(true);
 
-  const textClass = (theme) =>
-    `text-sm font-light tracking-wide leading-relaxed ${theme === "Day" ? "text-slate-900" : "text-white"}`;
+  // const textClass = (theme) =>
+  //   `text-sm font-light tracking-wide leading-relaxed ${theme === "Day" ? "text-slate-900" : "text-white"}`;
 
   useEffect(() => {
     const timer = setTimeout(() => setShowIntro(false), 1500);
@@ -32,9 +31,9 @@ function About() {
     return localStorage.getItem("theme") || "Day";
   });
 
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
 
   return (
     <section className="p-0 m-0 bg-slate-950">
@@ -51,7 +50,7 @@ function About() {
           isExpanded ? "lg:w-7/8" : "w-full lg:pr-[60px]"
         } ${theme === "Day" ? "bg-slate-100 text-slate-950" : "bg-slate-950 text-white z-10"}`}
       >
-        <AnimatePresence>
+        {/* <AnimatePresence>
           {showIntro && (
             <motion.div
               key="intro"
@@ -76,18 +75,18 @@ function About() {
               </motion.h1>
             </motion.div>
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
 
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-          <div className="hidden lg:block">
+          {/* <div className="hidden lg:block">
             {Array.from({ length: 10 }).map((_, i) => (
               <ShootingStar key={i} theme={theme} />
             ))}
-          </div>
+          </div> */}
 
           <Header theme={theme} setTheme={setTheme} />
 
-          <main className="">
+          {/* <main className="">
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 my-20">
               <motion.div
                 initial={{ x: 100, opacity: 0 }}
@@ -174,9 +173,9 @@ function About() {
               </div>
             </section>
             <Services theme={theme} />
-          </main>
+          </main> */}
         </div>
-        <Footer theme={theme} />
+        {/* <Footer theme={theme} /> */}
       </div>
     </section>
   );
