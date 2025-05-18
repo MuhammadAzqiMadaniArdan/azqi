@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import Profile from "../assets/profile.png"
-// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion"
 import {
   Download,
@@ -23,6 +22,9 @@ import { ReactTyped } from "react-typed"
 import { Link } from "react-router-dom"
 import StarField from "../Components/StarField"
 import CV from "../assets/Cvazqi.pdf"
+import Navbar from "../Components/Navbar"
+import Header from "../Components/Header"
+import Sidebar from "../Components/Sidebar"
 
 const navItems = [
   { label: "Home", icon: <Home size={20} />, to: "/" },
@@ -34,6 +36,7 @@ const navItems = [
 function HomePage() {
   const [showIntro, setShowIntro] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowIntro(false), 1500)
@@ -55,7 +58,9 @@ function HomePage() {
   }, [theme])
 
   return (
-    <div>
+    <div className={`transition-all duration-500 ease-in-out h-full p-5 pb-1 ${showIntro ? "h-screen" : ""}  ${
+          isExpanded ? "lg:w-7/8 lg:pr-[0px]" : "w-full lg:pr-[60px]"
+        } ${theme === "Day" ? "bg-slate-100 text-slate-950" : "bg-slate-950 text-white z-10"}`}>
       <AnimatePresence>
         {showIntro && (
           <motion.div
@@ -92,114 +97,19 @@ function HomePage() {
             theme === "Day" ? "bg-slate-100 text-slate-950" : "bg-slate-950 text-white"
           }`}
         >
-          <header
-            id="Header"
-            className="w-full bg-cover bg-center bg-fixed text-slate-950 flex-row justify-between mb-6 sm:mb-10"
-          >
-            <nav className="flex justify-between font-medium items-center py-5 sm:py-7 transition-all duration-300 ease-in-out">
-              <div className="gap-10 items-center font-semibold uppercase hidden lg:block">
-                <a
-                  className={`group cursor-pointer tracking-widest relative ${
-                    theme === "Night" ? "text-white" : "text-black"
-                  } `}
-                >
-                  Azqi
-                  <div className="absolute h-1 bg-green-400 left-0 w-[0%] group-hover:w-[100%] duration-300"></div>
-                </a>
-              </div>
+                    <Header theme={theme} setTheme={setTheme} />
 
-              {/* Social icons - responsive grid */}
-              <div className="grid grid-cols-4 gap-2 sm:gap-6 md:gap-10 items-center font-semibold uppercase">
-                <a
-                  className="group cursor-pointer tracking-widest relative"
-                  href="https://github.com/MuhammadAzqiMadaniArdan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div
-                    className={`rounded-full p-1 sm:p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <GitHub size={20} className="sm:w-6 sm:h-6" />
-                  </div>
-                </a>
-                <a className="group cursor-pointer tracking-widest relative" href="mailto:muhammadazqi098@gmail.com">
-                  <div
-                    className={`rounded-full p-1 sm:p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <Mail size={20} className="sm:w-6 sm:h-6" />
-                  </div>
-                </a>
-                <a
-                  className="group cursor-pointer tracking-widest relative"
-                  href="https://id.linkedin.com/in/muhammad-azqi-madani-ardan-315b722b5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div
-                    className={`rounded-full p-1 sm:p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <Linkedin size={20} className="sm:w-6 sm:h-6" />
-                  </div>
-                </a>
-                <a
-                  href="https://wa.me/6288215992674"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group cursor-pointer tracking-widest relative"
-                >
-                  <div
-                    className={`rounded-full p-1 sm:p-2 transition-all duration-300 ease-in-out transform ${
-                      theme === "Night" ? "text-white" : "text-black"
-                    } group-hover:scale-110 group-hover:text-green-500`}
-                  >
-                    <MessageCircle size={20} className="sm:w-6 sm:h-6" />
-                  </div>
-                </a>
-              </div>
-
-              {/* Mobile menu button */}
-              <div className="block lg:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md bg-green-500 text-white"
-                  aria-label="Toggle Menu"
-                >
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-              </div>
-
-              {/* Theme toggle - desktop */}
-              <div className="hidden lg:flex justify-end">
-                <button
-                  onClick={() => setTheme(theme === "Day" ? "Night" : "Day")}
-                  className="p-2 cursor-pointer rounded-full transition-colors duration-300 text-green-500"
-                  aria-label="Toggle Theme"
-                >
-                  {theme === "Day" ? <Moon size={24} /> : <Sun size={24} />}
-                </button>
-              </div>
-            </nav>
-          </header>
-
-          {/* Main content - completely restructured for better responsiveness */}
           <main
             className={`flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10 w-full min-h-[60vh] my-8 md:my-12 ${
               theme === "Day" ? "text-slate-950" : "text-white"
             }`}
           >
-            {/* Profile image - mobile first approach */}
             <div className="flex justify-center md:order-2 md:w-2/5 w-full">
-              <div className="p-2 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72">
+              <div className="p-2">
                 <img
                   src={Profile || "/placeholder.svg"}
                   alt="profile-image"
-                  className="rounded-full object-cover bg-green-400 pt-10 w-full h-full"
+                  className=" rounded-full object-cover bg-green-400 w-48 h-48 sm:w-92 sm:h-56 md:w-64 md:h-64 lg:w-52 lg:h-62"
                 />
               </div>
             </div>
@@ -266,15 +176,13 @@ function HomePage() {
               </div>
             </motion.div>
 
-            {/* Desktop navigation sidebar */}
-            <aside className="hidden lg:grid fixed end-5 grid-rows-5 gap-7 font-semibold items-center justify-end uppercase text-sm self-center">
-              {navItems.map((item, idx) => (
-                <Link key={idx} to={item.to} className="group cursor-pointer tracking-widest relative w-auto">
-                  {item.label}
-                  <div className="absolute h-1 bg-green-400 left-0 w-[0%] group-hover:w-[100%] duration-300"></div>
-                </Link>
-              ))}
-            </aside>
+            <Sidebar
+        theme={theme}
+        setTheme={setTheme}
+        isExpanded={isExpanded}
+        setIsExpanded={setIsExpanded}
+        active={"Home"}
+      />
           </main>
         </div>
 
@@ -324,7 +232,7 @@ function HomePage() {
         {/* Footer - made responsive */}
         <footer className="flex justify-center md:justify-end w-full py-6">
           <p
-            className={`uppercase py-1 px-3 sm:px-5 bg-green-500 rounded-full md:rounded-l-full font-semibold text-xs sm:text-sm ${
+            className={`uppercase py-1 px-3 sm:px-5 bg-green-500 rounded-l-full md:rounded-l-full font-semibold text-xs sm:text-sm ${
               theme === "Day" ? "text-white" : "text-gray-900"
             }`}
           >

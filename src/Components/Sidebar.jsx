@@ -47,7 +47,7 @@ const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded, active }) => {
           <Link
             key={idx}
             to={item.to}
-            className={`group flex items-center gap-3 cursor-pointer tracking-widest relative p-1 ${active == item.label ? "bg-green-600" : ""} rounded-lg`}
+            className={`group flex items-center gap-3 cursor-pointer tracking-widest relative p-1 ${active == item.label ? "bg-green-600 text-white" : ""} rounded-lg`}
           >
             {/* Icon selalu terlihat */}
             <div className="relative group">
@@ -83,9 +83,11 @@ const Sidebar = ({ theme, setTheme, isExpanded, setIsExpanded, active }) => {
           title="Switch Theme"
         >
           {theme === "Day" ? (
-            <div className="flex gap-2">
+            <div className="flex gap-2 ">
               <Moon size={24} />
-              {isExpanded ? <p>Dark Mode</p> : ""}
+              {isExpanded ? <p className={`overflow-hidden transition-all duration-300  ease-in-out ${
+                isExpanded ? "w-24 opacity-100" : "w-0 opacity-0"
+              }`}>Dark Mode</p> : ""}
             </div>
           ) : (
             <div className="flex gap-2">

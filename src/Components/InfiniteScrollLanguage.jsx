@@ -1,10 +1,11 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useState } from "react";
+"use client"
+
+import { motion } from "framer-motion"
+import { useEffect, useState, useRef } from "react"
 import {
   SiJavascript,
   SiPython,
   SiPhp,
-  SiGo,
   SiPostgresql,
   SiLaravel,
   SiHtml5,
@@ -14,65 +15,82 @@ import {
   SiBootstrap,
   SiNodedotjs,
   SiUnity,
-} from "react-icons/si";
+} from "react-icons/si"
 
-// Main Component
-const InfiniteScrollLanguages = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
-  
+const InfiniteScrollLanguages = ({ theme = "Day" }) => {
+  const [width, setWidth] = useState(0)
+  const carousel = useRef(null)
+
   const languages = [
     { name: "JavaScript", icon: <SiJavascript size={40} /> },
     { name: "Python", icon: <SiPython size={40} /> },
     { name: "PHP", icon: <SiPhp size={40} /> },
     { name: "React", icon: <SiReact size={40} /> },
-    { name: "Tailwindcss", icon: <SiTailwindcss size={40} /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss size={40} /> },
     { name: "Bootstrap", icon: <SiBootstrap size={40} /> },
     { name: "Unity", icon: <SiUnity size={40} /> },
-    { name: "Html5", icon: <SiHtml5 size={40} /> },
-    { name: "Css3", icon: <SiCss3 size={40} /> },
+    { name: "HTML5", icon: <SiHtml5 size={40} /> },
+    { name: "CSS3", icon: <SiCss3 size={40} /> },
     { name: "Laravel", icon: <SiLaravel size={40} /> },
-    { name: "Postgresql", icon: <SiPostgresql size={40} /> },
-    { name: "Nodedotjs", icon: <SiNodedotjs size={40} /> },
-  ];
+    { name: "PostgreSQL", icon: <SiPostgresql size={40} /> },
+    { name: "Node.js", icon: <SiNodedotjs size={40} /> },
+  ]
 
-  const controls = useAnimation();
+  // Duplicate the languages array to create a seamless loop
+  const duplicatedLanguages = [...languages, ...languages]
 
   useEffect(() => {
-    const animate = () => {
-      controls.start({
-        x: "-100%",
-        transition: {
-          duration: 30, 
-          ease: "linear",
-        },
-      }).then(() => {
-        controls.set({ x: 0 }); 
-        setIsAnimating(false);  
-      });
-    };
-
-    if (!isAnimating) {
-      setIsAnimating(true);
-      animate();
+    // Calculate the width of the carousel
+    const updateWidth = () => {
+      if (carousel.current) {
+        // We only need the width of the first set of items
+        const itemWidth = carousel.current.scrollWidth / 2
+        setWidth(itemWidth)
+      }
     }
-  }, [controls, isAnimating]);
+
+    updateWidth()
+    window.addEventListener("resize", updateWidth)
+    return () => window.removeEventListener("resize", updateWidth)
+  }, [])
 
   return (
-    <div className="overflow-hidden w-full bg-transparent py-4">
-      <motion.div
-        className="flex gap-8 w-max"
-        animate={controls}
-        style={{ display: "flex" }}
-      >
-        {languages.map((lang, i) => (
-          <div key={i} className="flex flex-col items-center min-w-[120px]">
-            <div className="text-4xl text-gray-800">{lang.icon}</div>
-            <p className="text-sm mt-2">{lang.name}</p>
-          </div>
-        ))}
+    <div className="relative w-full overflow-hidden py-8">
+      {/* Gradient overlays for fade effect */}
+      <div className="absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-background to-transparent"></div>
+      <div className="absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-background to-transparent"></div>
+
+      <motion.div className="flex w-full overflow-hidden" ref={carousel}>
+        <motion.div
+          className="flex gap-8"
+          animate={{ x: -width }}
+          transition={{
+            x: {
+              duration: 20,
+              ease: "linear",
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "loop",
+            },
+          }}
+        >
+          {duplicatedLanguages.map((lang, i) => (
+            <div key={i} className="flex flex-col items-center justify-center min-w-[120px]">
+              <div
+                className={`text-4xl ${theme === "Day" ? "text-gray-800" : "text-gray-200"} transition-colors duration-300`}
+              >
+                {lang.icon}
+              </div>
+              <p
+                className={`text-sm mt-2 ${theme === "Day" ? "text-gray-700" : "text-gray-300"} transition-colors duration-300`}
+              >
+                {lang.name}
+              </p>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export default InfiniteScrollLanguages;
+export default InfiniteScrollLanguages
