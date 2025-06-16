@@ -274,7 +274,7 @@ function Certificate() {
                 theme === "Day" ? "bg-slate-100" : "bg-slate-950"
               }`}
             >
-              <motion.h1
+              <motion.h3
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
@@ -284,7 +284,7 @@ function Certificate() {
                 }`}
               >
                 Certificate
-              </motion.h1>
+              </motion.h3>
             </motion.div>
           )}
         </AnimatePresence>

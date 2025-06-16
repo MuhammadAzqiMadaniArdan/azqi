@@ -71,7 +71,7 @@ function HomePage() {
             transition={{ duration: 1 }}
             className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center ${theme === "Day" ? "bg-slate-100" : "bg-slate-950"} z-50`}
           >
-            <motion.h1
+            <motion.h3
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
@@ -79,7 +79,7 @@ function HomePage() {
               className={`text-4xl sm:text-5xl md:text-6xl font-bold animate-pulse ${theme === "Day" ? "text-slate-950" : "text-white"}`}
             >
               Hello 👋
-            </motion.h1>
+            </motion.h3>
           </motion.div>
         )}
       </AnimatePresence>
@@ -131,13 +131,13 @@ function HomePage() {
                 </h3>
                 <span className="transition-all animate-bounce ease-in text-lg sm:text-xl md:text-2xl">👋</span>
               </div>
-              <h2
+              <h1
                 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${
                   theme === "Day" ? "text-slate-900" : "text-white"
                 } leading-tight`}
               >
                 Muhammad <span className="text-green-500">Azqi Madani</span> Ardan
-              </h2>
+              </h1>
 
               <p
                 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-semibold ${
