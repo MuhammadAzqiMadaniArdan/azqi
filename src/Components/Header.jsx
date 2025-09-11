@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import MobileMenu from "./MobileMenu"
-import { GitHub, Linkedin, Mail, MessageCircle, Menu, Home, User, Server, Folder } from "react-feather"
+import { GitHub, Linkedin, Mail, Menu, Home, User, Server, Folder } from "react-feather"
 
 const Header = ({ theme, setTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -28,7 +28,7 @@ const Header = ({ theme, setTheme }) => {
           </a>
         </div>
 
-        <div className="grid grid-cols-4 gap-2 sm:gap-6 md:gap-10 w-full lg:w-1/3">
+        <div className="grid grid-cols-3 gap-2 sm:gap-6 md:gap-10 w-full lg:w-1/3">
           {[
             {
               icon: <GitHub size={25} />,
@@ -36,15 +36,11 @@ const Header = ({ theme, setTheme }) => {
             },
             {
               icon: <Linkedin size={25} />,
-              href: "https://id.linkedin.com/in/muhammad-azqi-madani-ardan-315b722b5",
+              href: "https://www.linkedin.com/in/muhammadazqi/",
             },
             {
               icon: <Mail size={25} />,
               href: "mailto:muhammadazqi098@gmail.com",
-            },
-            {
-              icon: <MessageCircle size={25} />,
-              href: "https://wa.me/6288215992674",
             },
           ].map((item, idx) => (
             <a key={idx} href={item.href} target="_blank" rel="noopener noreferrer" className="group cursor-pointer">

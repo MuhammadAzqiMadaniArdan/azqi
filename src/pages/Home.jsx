@@ -6,12 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import {
   Download,
   Folder,
-  GitHub,
   Home,
-  Linkedin,
-  Mail,
-  Menu,
-  MessageCircle,
   Moon,
   Server,
   Sun,
