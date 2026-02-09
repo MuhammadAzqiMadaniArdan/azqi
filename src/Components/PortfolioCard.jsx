@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Lock, Play } from "react-feather";
+import { FaExchangeAlt } from "react-icons/fa";
+import { GiFullMotorcycleHelmet } from "react-icons/gi";
+import { IoTelescope } from "react-icons/io5";
+import { PiDogFill } from "react-icons/pi";
 import {
   SiFlutter,
   SiDart,
@@ -14,7 +18,24 @@ import {
   SiSharp,
   SiWebgl,
   SiGithub,
+  SiNextdotjs,
+  SiPostgresql,
+  SiTailwindcss,
+  SiShadcnui,
+  SiDocker,
+  SiRedis,
+  SiContactlesspayment,
+  SiAxios,
+  SiTestcafe,
+  SiWebauthn,
+  SiGoogleauthenticator,
+  SiJsonwebtokens,
+  SiEslint,
+  SiPrettier,
+  SiCss3,
+  SiInertia,
 } from "react-icons/si";
+import { TbBrandFramerMotion } from "react-icons/tb";
 
 const PortfolioCard = ({
   theme,
@@ -71,14 +92,35 @@ const PortfolioCard = ({
           {tools.map((tool, idx) => (
             <div key={idx} className="flex items-center gap-2">
               {tool === "Flutter" && <SiFlutter size={18} />}
+              {tool === "Next.js" && <SiNextdotjs size={18} />}
               {tool === "Dart" && <SiDart size={18} />}
               {tool === "Laravel" && <SiLaravel size={18} />}
+              {tool === "Inertia" && <SiInertia size={18} />}
               {tool === "PHP" && <SiPhp size={18} />}
               {tool === "HTML5" && <SiHtml5 size={18} />}
               {tool === "JavaScript" && <SiJavascript size={18} />}
               {tool === "Jquery" && <SiJquery size={18} />}
               {tool === "Bootstrap" && <SiBootstrap size={18} />}
               {tool === "MySQL" && <SiMysql size={18} />}
+              {tool === "PostgreSQL" && <SiPostgresql size={18} />}
+              {tool === "Tailwind" && <SiTailwindcss size={18} />}
+              {tool === "CSS3" && <SiCss3 size={18} />}
+              {tool === "shadnc/ui" && <SiShadcnui size={18} />}
+              {tool === "Docker" && <SiDocker size={18} />}
+              {tool === "Redis" && <SiRedis size={18} />}
+              {tool === "Midtrans" && <SiContactlesspayment size={18} />}
+              {tool === "Rajaongkir" && <GiFullMotorcycleHelmet size={18} />}
+              {tool === "Axios" && <SiAxios size={18} />}
+              {tool === "PHPUnit" && <SiTestcafe size={18} />}
+              {tool === "Laravel Telescope" && <IoTelescope size={18} />}
+              {tool === "PKCE" && <FaExchangeAlt size={18} />}
+              {tool === "Laravel Passport" && <SiJsonwebtokens size={18} />}
+              {tool === "Oauth 2.0" && <SiWebauthn size={18} />}
+              {tool === "Socialite" && <SiGoogleauthenticator size={18} />}
+              {tool === "Framer Motion" && <TbBrandFramerMotion size={18} />}
+              {tool === "ESLint" && <SiEslint size={18} />}
+              {tool === "Prettier" && <SiPrettier size={18} />}
+              {tool === "Husky" && <PiDogFill size={18} />}
               {tool === "Unity" && <SiUnity size={18} />}
               {tool === "CSharp" && <SiSharp size={18} />}
               {tool === "WebGL" && <SiWebgl size={18} />}

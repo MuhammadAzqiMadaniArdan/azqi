@@ -12,6 +12,7 @@ import CV from "../assets/Muhammad_Azqi_Madani_Ardan_Curiculum_Vitae.pdf";
 import Header from "../Components/Header";
 import PortfolioSection from "../Components/PortfolioSection";
 import Footer from "../Components/Footer";
+import { RiNextjsFill } from "react-icons/ri";
 
 function Portfolio() {
   const [showIntro, setShowIntro] = useState(true);
@@ -44,7 +45,6 @@ function Portfolio() {
         setIsExpanded={setIsExpanded}
         active={"Portfolio"}
       />
-
       <div
         className={`transition-all duration-500 ease-in-out h-full p-5 pb-1 ${showIntro ? "h-screen" : ""} ${
           isExpanded ? "lg:w-7/8" : "w-full lg:pr-[60px]"

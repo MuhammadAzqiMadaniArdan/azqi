@@ -21,9 +21,9 @@ const PortfolioSection = ({ theme }) => {
         "Full-stack modular e-commerce platform built with BFF architecture, Repository + Service pattern, and Monorepo structure. Features include payment gateway (Midtrans), shipment integration (RajaOngkir), image moderation (Sightengine), responsive UI, and CI/CD pipeline with GitHub Actions.",
       tools: [
         "Next.js",
-        "Laravel 11",
+        "Laravel",
         "PostgreSQL",
-        "Tailwind CSS",
+        "Tailwind",
         "shadcn/ui",
         "Docker",
         "Redis",
@@ -58,7 +58,7 @@ const PortfolioSection = ({ theme }) => {
       tools: [
         "Next.js",
         "Axios",
-        "Tailwind CSS",
+        "Tailwind",
         "Framer Motion",
         "ESLint",
         "Prettier",
