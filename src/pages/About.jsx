@@ -8,7 +8,7 @@ import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
 import Wikrama from "../assets/wikramalogo.png";
 import Dihostingin from "../assets/dihostingin.png";
-import CV from "../assets/Cvazqi.pdf";
+import CV from "../assets/Muhammad_Azqi_Madani_Ardan_Curiculum_Vitae.pdf";
 import InfiniteScrollLanguages from "../Components/InfiniteScrollLanguage";
 
 import Services from "../Components/Services";

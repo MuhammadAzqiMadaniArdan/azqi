@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { Download, Monitor, Lock } from "react-feather";
 
 import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
-import portfolio1 from "../assets/portfolio/portfolio-Eksis.png";
-import CV from "../assets/Cvazqi.pdf";
+import portfolio1 from "../assets/portfolio/portfolio-avera.png";
+import CV from "../assets/Muhammad_Azqi_Madani_Ardan_Curiculum_Vitae.pdf";
 
 import Header from "../Components/Header";
 import PortfolioSection from "../Components/PortfolioSection";
@@ -79,12 +79,11 @@ function Portfolio() {
 
         {/* Kontainer Utama */}
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-        <div className="hidden lg:block">
-
-{Array.from({ length: 10 }).map((_, i) => (
-  <ShootingStar key={i} theme={theme} />
-))}
-</div>
+          <div className="hidden lg:block">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <ShootingStar key={i} theme={theme} />
+            ))}
+          </div>
           <Header theme={theme} setTheme={setTheme} />
 
           {/* Main Content */}
@@ -133,7 +132,7 @@ function Portfolio() {
                   <p
                     className={`text-base md:text-lg font-medium ${theme === "Day" ? "text-gray-600" : "text-gray-400"}`}
                   >
-                    EKSIS - Ekstrakulikuler and Seni Budaya Integritas Sistem
+                    Avera App – E-commerce Platform
                   </p>
                   <hr className="border-gray-400 w-20" />
                 </header>
@@ -158,9 +157,12 @@ function Portfolio() {
                   </div>
 
                   <p className={textClass(theme)}>
-                    A Website using React as Front-End styling with tailwind.css
-                    and Laravel as Back-End purpose to make a attendance system
-                    ,Achievement system and Activity System{" "}
+                    Full-stack modular e-commerce platform built with BFF
+                    architecture, Repository + Service pattern, and Monorepo
+                    structure. Features include payment gateway (Midtrans),
+                    shipment integration (RajaOngkir), image moderation
+                    (Sightengine), responsive UI, and CI/CD pipeline with GitHub
+                    Actions.
                   </p>
                   <hr className="border-gray-400 w-20" />
                   <div className="flex justify-center bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4">

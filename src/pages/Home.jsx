@@ -16,8 +16,7 @@ import {
 import { ReactTyped } from "react-typed"
 import { Link } from "react-router-dom"
 import StarField from "../Components/StarField"
-import CV from "../assets/Cvazqi.pdf"
-import Navbar from "../Components/Navbar"
+import CV from "../assets/Muhammad_Azqi_Madani_Ardan_Curiculum_Vitae.pdf"
 import Header from "../Components/Header"
 import Sidebar from "../Components/Sidebar"
 

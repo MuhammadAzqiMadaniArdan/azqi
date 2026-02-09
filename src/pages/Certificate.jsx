@@ -6,31 +6,51 @@ import { Download } from "react-feather";
 
 import ShootingStar from "../Components/ShootingStar";
 import Sidebar from "../Components/Sidebar";
-import certificate1 from "../assets/certificate/figma-ui-all-1.png";
-import certificate2 from "../assets/certificate/Ux-designAll-1.png";
-import certificate3 from "../assets/certificate/sertifikat-backend-1.png";
-import certificate4 from "../assets/certificate/sertifikat-frontend-1.png";
-import certificate5 from "../assets/certificate/sertifikat-cyberLabs.png";
-import certificate6 from "../assets/certificate/sertifikat-wanteknologi.jpg";
-import certificate7 from "../assets/certificate/sertifikat-js-1.png";
-import certificate8 from "../assets/certificate/sertifikat-Git-1.png";
-import certificate9 from "../assets/certificate/sertifikat-python-1.png";
-import certificate10 from "../assets/certificate/sertifikat-K3.jfif";
-import certificate11 from "../assets/certificate/sertifikat-ggj.png";
-import certificate12 from "../assets/certificate/sertifikat-UnityEssential-1.png";
-import certificate13 from "../assets/certificate/sertifikat-igdx.png";
-import certificate14 from "../assets/certificate/sertifikat-meneliti-karir-1.png";
-import certificate15 from "../assets/certificate/sertifikat-visualisasi-1.png";
-import CV from "../assets/Cvazqi.pdf";
+import bnspJunior from "../assets/certificate/sertifikat-bnsp.jpeg";
+
+import figmaUI from "../assets/certificate/figma-ui-all-1.png";
+import uxDesign from "../assets/certificate/Ux-designAll-1.png";
+import backendBasic from "../assets/certificate/sertifikat-backend-1.png";
+import frontendBasic from "../assets/certificate/sertifikat-frontend-1.png";
+import cyberLabs from "../assets/certificate/sertifikat-cyberLabs.png";
+import wantekVue from "../assets/certificate/sertifikat-wanteknologi.jpg";
+import jsBasic from "../assets/certificate/sertifikat-js-1.png";
+import gitBasic from "../assets/certificate/sertifikat-Git-1.png";
+import pythonBasic from "../assets/certificate/sertifikat-python-1.png";
+import k3 from "../assets/certificate/sertifikat-K3.jfif";
+import ggj from "../assets/certificate/sertifikat-ggj.png";
+import unity from "../assets/certificate/sertifikat-UnityEssential-1.png";
+import igdx from "../assets/certificate/sertifikat-igdx.png";
+import careerDev from "../assets/certificate/sertifikat-meneliti-karir-1.png";
+import dataViz from "../assets/certificate/sertifikat-visualisasi-1.png";
+
+import CV from "../assets/Muhammad_Azqi_Madani_Ardan_Curiculum_Vitae.pdf";
 import { FaMedal, FaStar } from "react-icons/fa";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 const certificateData = [
+  // 🥇 PRIORITAS UTAMA
   {
-    src: certificate1,
-    title: "Figma For UI / UX Design",
-    description: "A certificate for UI design training using Figma.",
+    src: bnspJunior,
+    title: "BNSP – Junior Programmer",
+    description:
+      "National professional certification validating competencies in junior-level programming, software logic, and fundamental development practices.",
+    stars: (
+      <div className="flex gap-2 text-white items-center">
+        <FaStar />
+        <FaStar />
+        <FaStar />
+      </div>
+    ),
+    type: "professional",
+  },
+
+  // ⬇️ SERTIFIKAT LAIN (URUT TURUN)
+  {
+    src: figmaUI,
+    title: "Figma for UI / UX Design",
+    description: "UI design training using Figma for modern interface design.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -40,9 +60,9 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate2,
+    src: uxDesign,
     title: "UX Design",
-    description: "UX training to improve user experience.",
+    description: "UX training to improve user experience and usability.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -52,34 +72,34 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate3,
-    title: "Learn to Build a Back-End Application for Beginners",
+    src: backendBasic,
+    title: "Back-End Web Development for Beginners",
     description:
-      "Certificate of training in building back-end web applications for beginners using JavaScript and Node.js.",
+      "Training in building back-end applications using JavaScript and Node.js.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
       </div>
     ),
-    type: "Beginner",
+    type: "beginner",
   },
   {
-    src: certificate4,
-    title: "Learn to Build a Front-End Web for Beginners",
+    src: frontendBasic,
+    title: "Front-End Web Development for Beginners",
     description:
-      "Certificate of training in building front-end web applications for beginners using CSS3 and semantic HTML.",
+      "Training in building front-end websites using HTML, CSS, and best practices.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
       </div>
     ),
-    type: "Beginner",
+    type: "beginner",
   },
   {
-    src: certificate5,
+    src: cyberLabs,
     title: "Back-End Development with JavaScript Framework",
     description:
-      "Certificate from CyberLabs training in building back-end web applications using Express.js and Postman.",
+      "Express.js & Postman training for API-based back-end development.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -89,11 +109,10 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate6,
-    title:
-      "Front-End Development with The Progressive JavaScript Framework Vue.JS",
+    src: wantekVue,
+    title: "Front-End Development with Vue.js",
     description:
-      "Certificate from PT Wanteknologi training in building company websites using Vue.js.",
+      "Training in developing company websites using Vue.js framework.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -103,45 +122,45 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate7,
-    title: "Learn the Basics of JavaScript Programming",
+    src: jsBasic,
+    title: "JavaScript Programming Basics",
     description:
-      "Basic JavaScript training to improve website interactivity including DOM, events, and debugging.",
+      "Fundamental JavaScript including DOM manipulation and debugging.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
       </div>
     ),
-    type: "Beginner",
+    type: "beginner",
   },
   {
-    src: certificate8,
-    title: "Learn Git Basics with GitHub",
+    src: gitBasic,
+    title: "Git & GitHub Basics",
     description:
-      "Basic GitHub training to enhance the use of Git and GitHub as tools for collaboration and storing directories publicly.",
+      "Version control fundamentals using Git and GitHub collaboration.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
       </div>
     ),
-    type: "Beginner",
+    type: "beginner",
   },
   {
-    src: certificate9,
-    title: "Getting Started with Python Programming",
+    src: pythonBasic,
+    title: "Python Programming Basics",
     description:
-      "Basic Python training to improve development and understanding of Python usage.",
+      "Introductory Python training for general-purpose programming.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
       </div>
     ),
-    type: "Beginner",
+    type: "beginner",
   },
   {
-    src: certificate10,
-    title: "Occupational Health and Safety",
-    description: "Occupational Health and Safety training.",
+    src: k3,
+    title: "Occupational Health and Safety (K3)",
+    description: "Workplace safety and occupational health training.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -151,10 +170,10 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate11,
+    src: ggj,
     title: "Global Game Jam",
     description:
-      "Game development training with a team collaboration system to be completed in less than 3 days.",
+      "Collaborative game development event completed within 72 hours.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -164,10 +183,9 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate12,
+    src: unity,
     title: "Unity Essential Pathway",
-    description:
-      "Training in learning and developing games using Unity, covering systems and usage within the hierarchy.",
+    description: "Game development fundamentals using Unity Engine.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -177,10 +195,9 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate13,
-    title: "IGDX Seminar: Career Guidance For Aspiring Game Developers",
-    description:
-      "Seminar to improve understanding of the game developer industry and career in Indonesia.",
+    src: igdx,
+    title: "IGDX Seminar – Game Developer Career",
+    description: "Industry seminar on career paths in game development.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
@@ -190,26 +207,26 @@ const certificateData = [
     type: "intermediate",
   },
   {
-    src: certificate14,
-    title: "Pursuing a Career as a Software Developer",
-    description: "Training on pursuing a career as a software developer.",
+    src: careerDev,
+    title: "Career Path as a Software Developer",
+    description: "Training on career preparation in software development.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
       </div>
     ),
-    type: "Beginner",
+    type: "beginner",
   },
   {
-    src: certificate15,
-    title: "Learn the Basics of Data Visualization",
-    description: "Basic training in data visualization.",
+    src: dataViz,
+    title: "Data Visualization Basics",
+    description: "Introductory training on visualizing data effectively.",
     stars: (
       <div className="flex gap-2 text-white items-center">
         <FaStar />
       </div>
     ),
-    type: "Beginner",
+    type: "beginner",
   },
 ];
 
@@ -217,7 +234,7 @@ function Certificate() {
   const [showIntro, setShowIntro] = useState(true);
   const [isExpanded, setIsExpanded] = useState(true);
   const [loadedImages, setLoadedImages] = useState(
-    Array(certificateData.length).fill(false)
+    Array(certificateData.length).fill(false),
   );
   const [lastImageLoaded, setLastImageLoaded] = useState(false);
 
@@ -291,7 +308,7 @@ function Certificate() {
 
         {/* Kontainer Utama */}
         <div className="font-signika-ngt mx-auto px-4 sm:px-6 lg:px-8 h-[85%]">
-        <div className="hidden lg:block">
+          <div className="hidden lg:block">
             {Array.from({ length: 10 }).map((_, i) => (
               <ShootingStar key={i} theme={theme} />
             ))}
@@ -345,37 +362,38 @@ function Certificate() {
                       theme === "Day" ? "text-gray-600" : "text-gray-400"
                     }`}
                   >
-                    Figma For UI / UX Design
+BNSP – Junior Programmer
                   </p>
                   <hr className="border-gray-400 w-20" />
                 </header>
 
                 <div className="space-y-4 text-justify">
-                <div className="relative w-full max-w-md">
-  {!lastImageLoaded && (
-    <div className="absolute inset-0 h-64 bg-gray-300 animate-pulse rounded-lg flex items-center justify-center text-gray-700 font-medium z-10">
-      Memuat gambar...
-    </div>
-  )}
-  <img
-    src={certificate1}
-    alt="eksis-preview"
-    onLoad={() => setLastImageLoaded(true)}
-    className={`w-full max-w-md h-64 object-contain rounded-lg shadow-md transition-opacity duration-300 ${
-      lastImageLoaded ? "opacity-100" : "opacity-0"
-    }`}
-  />
-</div>
-
+                  <div className="relative w-full max-w-md">
+                    {!lastImageLoaded && (
+                      <div className="absolute inset-0 h-64 bg-gray-300 animate-pulse rounded-lg flex items-center justify-center text-gray-700 font-medium z-10">
+                        Memuat gambar...
+                      </div>
+                    )}
+                    <img
+                      src={bnspJunior}
+                      alt="BNSP-certificate"
+                      onLoad={() => setLastImageLoaded(true)}
+                      className={`w-full max-w-md h-64 object-contain rounded-lg shadow-md transition-opacity duration-300 ${
+                        lastImageLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  </div>
 
                   <p className={textClass(theme)}>
-                    Sertifikat pelatihan desain UI menggunakan Figma.
-                  </p>
+National professional certification validating competencies in junior-level programming, software logic, and fundamental development practices.                  </p>
                   <hr className="border-gray-400 w-20" />
 
                   <div className="flex justify-between bg-slate-700 hover:bg-slate-600 p-3 rounded-lg mt-4 gap-2">
-                    <p className="text-white self-center">Intermidiate</p>
+                    <p className="text-white self-center">professional
+
+</p>
                     <div className="flex gap-2 text-white items-center">
+                      <FaStar />
                       <FaStar />
                       <FaStar />
                     </div>
@@ -410,22 +428,23 @@ function Certificate() {
                     >
                       <div>
                         <div className="flex justify-center py-2 min-h-[200px]">
-                        <div className="relative w-full max-w-md">
-  {!loadedImages[index] && (
-    <div className="absolute inset-0 flex items-center justify-center bg-gray-300 rounded-lg animate-pulse text-gray-700 text-sm font-semibold z-10">
-      Memuat gambar...
-    </div>
-  )}
-  <img
-    src={item.src}
-    alt={item.title}
-    onLoad={() => handleImageLoad(index)}
-    className={`w-full object-contain rounded-lg shadow-md transition-opacity duration-500 ${
-      loadedImages[index] ? "opacity-100" : "opacity-0"
-    }`}
-  />
-</div>
-
+                          <div className="relative w-full max-w-md">
+                            {!loadedImages[index] && (
+                              <div className="absolute inset-0 flex items-center justify-center bg-gray-300 rounded-lg animate-pulse text-gray-700 text-sm font-semibold z-10">
+                                Memuat gambar...
+                              </div>
+                            )}
+                            <img
+                              src={item.src}
+                              alt={item.title}
+                              onLoad={() => handleImageLoad(index)}
+                              className={`w-full object-contain rounded-lg shadow-md transition-opacity duration-500 ${
+                                loadedImages[index]
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              }`}
+                            />
+                          </div>
                         </div>
 
                         <div className="flex flex-col gap-4 pt-4 text-center sm:text-left">

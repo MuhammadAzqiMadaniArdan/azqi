@@ -1,42 +1,125 @@
 import React from "react";
 import PortfolioCard from "./PortfolioCard";
-import portfolio1 from "../assets/portfolio/portfolio-Eksis.png";
-import portfolio2 from "../assets/portfolio/portfolio-kasir.png";
-import portfolio3 from "../assets/portfolio/UnityEssential.png";
-import portfolio4 from "../assets/portfolio/portfolio-tbVillage.png";
-import portfolio5 from "../assets/portfolio/portfolio-flutter.png";
-import portfolio6 from "../assets/portfolio/portfolio-legaslisasi-app.jpeg";
-import portfolio7 from "../assets/portfolio/portfolio-buku-tamu.jpeg";
+import portfolio1 from "../assets/portfolio/portfolio-avera.png";
+import portfolio2 from "../assets/portfolio/portfolio-identity-core.png";
+import portfolio3 from "../assets/portfolio/portfolio-assalafiyah.png";
+import portfolio4 from "../assets/portfolio/portfolio-qiwanime.png";
+import portfolio5 from "../assets/portfolio/portfolio-Eksis.png";
+import portfolio6 from "../assets/portfolio/portfolio-kasir.png";
+import portfolio7 from "../assets/portfolio/UnityEssential.png";
+import portfolio8 from "../assets/portfolio/portfolio-tbVillage.png";
+import portfolio9 from "../assets/portfolio/portfolio-flutter.png";
+import portfolio10 from "../assets/portfolio/portfolio-legaslisasi-app.jpeg";
+import portfolio11 from "../assets/portfolio/portfolio-buku-tamu.jpeg";
 
 const PortfolioSection = ({ theme }) => {
   const portfolioData = [
     {
       image: portfolio1,
-      title: "EKSIS - Ekstrakurikuler and Seni Budaya Integritas Sistem",
+      title: "Avera App – E-commerce Platform",
       description:
-        "A Website using React as Front-End styling with Tailwind CSS and Laravel as Back-End, built to manage attendance, achievements, and activities.",
-      tools: ["Laravel", "React", "Tailwind", "PHP", "Inertia", "CSS3", "JavaScript", "PostgreSQL"],
-      privateProject: true,
+        "Full-stack modular e-commerce platform built with BFF architecture, Repository + Service pattern, and Monorepo structure. Features include payment gateway (Midtrans), shipment integration (RajaOngkir), image moderation (Sightengine), responsive UI, and CI/CD pipeline with GitHub Actions.",
+      tools: [
+        "Next.js",
+        "Laravel 11",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Docker",
+        "Redis",
+        "Midtrans",
+        "RajaOngkir",
+        "Axios",
+        "PHPUnit",
+        "Laravel Telescope",
+      ],
+      githubLink: "https://github.com/MuhammadAzqiMadaniArdan/Avera.git",
     },
     {
       image: portfolio2,
-      title: "Cashier App - A Point-of-sale (POS) web application",
+      title: "Identity Core – User Authentication & Management System",
       description:
-        "Kasir App is a point-of-sale (POS) web application designed to manage product ordering and transactions. It supports two main roles: Admin and Cashier Staff.",
-      tools: ["Laravel", "Bootstrap", "PHP", "HTML5", "CSS3", "JavaScript", "MySQL"],
-      githubLink: "https://github.com/MuhammadAzqiMadaniArdan/Final_KasirApp",
+        "Secure login, registration, and social login system built with Laravel Passport, Socialite, OAuth 2.0, and PKCE. Includes API authentication, token management, custom user roles, and robust relational database design for user management.",
+      tools: [
+        "Laravel",
+        "Laravel Passport",
+        "Socialite",
+        "OAuth 2.0",
+        "PKCE",
+        "PostgreSQL",
+      ],
+      githubLink: "https://github.com/MuhammadAzqiMadaniArdan/identity-core.git",
     },
     {
       image: portfolio3,
+      title: "Assalafiyah – Al-Qur’an, Hadith & Doa Website",
+      description:
+        "Islamic web platform for reading Al-Qur’an with translation, authentic Hadith collections, and daily prayers (Doa). Consumes external APIs via Axios and features a modern, responsive UI built with Tailwind CSS. Includes code quality tools (ESLint, Prettier, Husky) for maintainable development.",
+      tools: [
+        "Next.js",
+        "Axios",
+        "Tailwind CSS",
+        "Framer Motion",
+        "ESLint",
+        "Prettier",
+        "Husky",
+      ],
+      githubLink: "https://github.com/MuhammadAzqiMadaniArdan/As-Salafiyah.git",
+    },
+    {
+      image: portfolio4,
+      title: "Qiwanime – Anime Collection & Comment Web App",
+      description:
+        "Web app for personal anime collection management and user comment system. Features GitHub authentication, integration with Jikan API for real-time data, CRUD for collections and comments, and relational database schema with Prisma and MySQL.",
+      tools: ["Next.js", "Tailwind CSS", "Prisma ORM", "MySQL", "REST API"],
+      githubLink: "https://github.com/MuhammadAzqiMadaniArdan/qiwanime.git",
+    },
+    {
+      image: portfolio5,
+      title: "EKSIS - Ekstrakurikuler and Seni Budaya Integritas Sistem",
+      description:
+        "A Website using React as Front-End styling with Tailwind CSS and Laravel as Back-End, built to manage attendance, achievements, and activities.",
+      tools: [
+        "Laravel",
+        "React",
+        "Tailwind",
+        "PHP",
+        "Inertia",
+        "CSS3",
+        "JavaScript",
+        "PostgreSQL",
+      ],
+      privateProject: true,
+    },
+    {
+      image: portfolio6,
+      title: "Cashier App - A Point-of-sale (POS) web application",
+      description:
+        "Kasir App is a point-of-sale (POS) web application designed to manage product ordering and transactions. It supports two main roles: Admin and Cashier Staff.",
+      tools: [
+        "Laravel",
+        "Bootstrap",
+        "PHP",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "MySQL",
+      ],
+      githubLink: "https://github.com/MuhammadAzqiMadaniArdan/Final_KasirApp",
+    },
+    {
+      image: portfolio7,
       title: "Unity Essential - Learning Project of Unity Essential",
       description:
         "A Game using Unity as Game Engine code with C# and deploy game with WebGL to UnityPlay.",
       tools: ["Unity", "CSharp", "WebGL"],
-      githubLink: "https://github.com/MuhammadAzqiMadaniArdan/UnityEssentialsProject",
-      playLink: "https://play.unity.com/en/games/10a9be6a-35c1-4186-be39-7ca425f2a2b9/sugurugu-essential-project",
+      githubLink:
+        "https://github.com/MuhammadAzqiMadaniArdan/UnityEssentialsProject",
+      playLink:
+        "https://play.unity.com/en/games/10a9be6a-35c1-4186-be39-7ca425f2a2b9/sugurugu-essential-project",
     },
     {
-      image: portfolio4,
+      image: portfolio8,
       title: "The Destroy Village - Turn-Based RPG Unity Game",
       description:
         "A Game using Unity as Game Engine code with C# and Make a animation with DoTween and make a complex feature like quest system, turn-based system and RPG system.",
@@ -44,7 +127,7 @@ const PortfolioSection = ({ theme }) => {
       privateProject: true,
     },
     {
-      image: portfolio5,
+      image: portfolio9,
       title: "Flutter Profile – Portfolio Website using Flutter",
       description:
         "Flutter Profile is a responsive and modern portfolio website built using the Flutter framework, designed to showcase personal or professional profiles. It provides a smooth and mobile-first experience, featuring clean UI components, animated transitions, and easy customization.",
@@ -52,19 +135,35 @@ const PortfolioSection = ({ theme }) => {
       githubLink: "https://github.com/MuhammadAzqiMadaniArdan/Flutter-Profile",
     },
     {
-      image: portfolio6,
+      image: portfolio10,
       title: "Legalisasi App – Cooperation Agreement (SPK) management system",
       description:
         "Legalisasi App is a Laravel-based web application built to manage Cooperation Agreements (SPK) and handle server service orders efficiently. This system streamlines the process of creating, approving, and tracking SPK documents while also managing incoming service requests related to server or IT infrastructure.",
-      tools: ["PHP", "Laravel", "HTML5", "Jquery", "Bootstrap", "JavaScript", "MySQL"],
+      tools: [
+        "PHP",
+        "Laravel",
+        "HTML5",
+        "Jquery",
+        "Bootstrap",
+        "JavaScript",
+        "MySQL",
+      ],
       privateProject: true,
     },
     {
-      image: portfolio7,
+      image: portfolio11,
       title: "Buku Tamu – Guest Book for Visitors to Data Centers",
       description:
         "A responsive web application built to digitally manage guest entries and visits to data centers. This project uses Laravel as the framework with PHP as the language and helps streamline visitor registration, check-in/check-out logging, and reporting, providing a secure and efficient alternative to traditional paper-based guest books.",
-      tools: ["PHP", "Laravel", "HTML5", "Jquery", "Bootstrap", "JavaScript", "MySQL"],
+      tools: [
+        "PHP",
+        "Laravel",
+        "HTML5",
+        "Jquery",
+        "Bootstrap",
+        "JavaScript",
+        "MySQL",
+      ],
       githubLink: "https://github.com/MuhammadAzqiMadaniArdan/bukutamu",
     },
   ];
