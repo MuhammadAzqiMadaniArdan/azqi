@@ -40,7 +40,7 @@ const Header = ({ theme, setTheme }) => {
             },
             {
               icon: <Mail size={25} />,
-              href: "mailto:muhammadazqi098@gmail.com",
+              href: "mailto:m.azqi.madani.a@gmail.com",
             },
           ].map((item, idx) => (
             <a key={idx} href={item.href} target="_blank" rel="noopener noreferrer" className="group cursor-pointer">
