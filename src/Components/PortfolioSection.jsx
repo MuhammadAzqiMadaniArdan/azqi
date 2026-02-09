@@ -71,7 +71,7 @@ const PortfolioSection = ({ theme }) => {
       title: "Qiwanime – Anime Collection & Comment Web App",
       description:
         "Web app for personal anime collection management and user comment system. Features GitHub authentication, integration with Jikan API for real-time data, CRUD for collections and comments, and relational database schema with Prisma and MySQL.",
-      tools: ["Next.js", "Tailwind CSS", "Prisma ORM", "MySQL", "REST API"],
+      tools: ["Next.js", "Tailwind", "Prisma ORM", "MySQL", "REST API"],
       githubLink: "https://github.com/MuhammadAzqiMadaniArdan/qiwanime.git",
     },
     {
