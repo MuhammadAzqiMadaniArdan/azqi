@@ -118,7 +118,7 @@ const PortfolioCard = ({
               {tool === "Laravel Telescope" && <IoTelescope size={18} />}
               {tool === "PKCE" && <FaExchangeAlt size={18} />}
               {tool === "Laravel Passport" && <SiJsonwebtokens size={18} />}
-              {tool === "Oauth 2.0" && <SiWebauthn size={18} />}
+              {tool === "OAuth 2.0" && <SiWebauthn size={18} />}
               {tool === "Socialite" && <SiGoogleauthenticator size={18} />}
               {tool === "Framer Motion" && <TbBrandFramerMotion size={18} />}
               {tool === "ESLint" && <SiEslint size={18} />}
