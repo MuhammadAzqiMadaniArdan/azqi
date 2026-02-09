@@ -106,6 +106,8 @@ const PortfolioSection = ({ theme }) => {
         "MySQL",
       ],
       githubLink: "https://github.com/MuhammadAzqiMadaniArdan/Final_KasirApp",
+      playLink:
+        "https://assalafiyah.vercel.app"
     },
     {
       image: portfolio7,
