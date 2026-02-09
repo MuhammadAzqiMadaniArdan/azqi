@@ -34,8 +34,10 @@ import {
   SiPrettier,
   SiCss3,
   SiInertia,
+  SiPrisma,
+  SiReact,
 } from "react-icons/si";
-import { TbBrandFramerMotion } from "react-icons/tb";
+import { TbApi, TbBrandFramerMotion } from "react-icons/tb";
 
 const PortfolioCard = ({
   theme,
@@ -92,6 +94,7 @@ const PortfolioCard = ({
           {tools.map((tool, idx) => (
             <div key={idx} className="flex items-center gap-2">
               {tool === "Flutter" && <SiFlutter size={18} />}
+              {tool === "React" && <SiReact size={18} />}
               {tool === "Next.js" && <SiNextdotjs size={18} />}
               {tool === "Dart" && <SiDart size={18} />}
               {tool === "Laravel" && <SiLaravel size={18} />}
@@ -105,11 +108,11 @@ const PortfolioCard = ({
               {tool === "PostgreSQL" && <SiPostgresql size={18} />}
               {tool === "Tailwind" && <SiTailwindcss size={18} />}
               {tool === "CSS3" && <SiCss3 size={18} />}
-              {tool === "shadnc/ui" && <SiShadcnui size={18} />}
+              {tool === "shadcn/ui" && <SiShadcnui size={18} />}
               {tool === "Docker" && <SiDocker size={18} />}
               {tool === "Redis" && <SiRedis size={18} />}
               {tool === "Midtrans" && <SiContactlesspayment size={18} />}
-              {tool === "Rajaongkir" && <GiFullMotorcycleHelmet size={18} />}
+              {tool === "RajaOngkir" && <GiFullMotorcycleHelmet size={18} />}
               {tool === "Axios" && <SiAxios size={18} />}
               {tool === "PHPUnit" && <SiTestcafe size={18} />}
               {tool === "Laravel Telescope" && <IoTelescope size={18} />}
@@ -122,6 +125,8 @@ const PortfolioCard = ({
               {tool === "Prettier" && <SiPrettier size={18} />}
               {tool === "Husky" && <PiDogFill size={18} />}
               {tool === "Unity" && <SiUnity size={18} />}
+              {tool === "Prisma ORM" && <SiPrisma size={18} />}
+              {tool === "REST API" && <TbApi size={18} />}
               {tool === "CSharp" && <SiSharp size={18} />}
               {tool === "WebGL" && <SiWebgl size={18} />}
               <span>{tool}</span>
